@@ -65,7 +65,7 @@ nav.principal a:hover,nav.principal a:focus-visible{border-color:var(--rosa)}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-.hero h1{font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-height:1.05;font-size:clamp(30px,4.6vw,56px);max-width:22ch;overflow-wrap:break-word;hyphens:auto}
+.hero h1{font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-height:1.05;font-size:clamp(28px,4.2vw,52px);max-width:24ch;overflow-wrap:break-word}
 .hero h1 em{font-style:normal;color:var(--verd)}
 .hero .entradeta{margin-top:20px;font-size:19px;color:#EAF0F3;max-width:56ch}
 .portes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px}
@@ -94,6 +94,25 @@ section{padding:72px 0}
 .capcalera-seccio .tot:hover{color:var(--rosa);border-color:var(--rosa)}
 .eyebrow{display:flex;align-items:center;gap:9px;font-family:var(--cos);font-size:13.5px;font-weight:700;color:var(--tinta);margin-bottom:10px}
 .eyebrow::before{content:"";width:20px;height:3px;border-radius:2px;background:var(--verd)}
+
+/* Logo animat en fer scroll */
+.logo-scroll{height:220vh;position:relative}
+.logo-scroll-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;background:var(--blanc)}
+.logo-scroll-wrap{width:260px;height:296px;position:relative}
+.capa-anell,.capa-ninot{position:absolute;inset:0;width:100%;height:100%;will-change:transform,opacity}
+.capa-anell{-webkit-mask-image:radial-gradient(circle, transparent 0%, transparent 40%, black 46%, black 100%);mask-image:radial-gradient(circle, transparent 0%, transparent 40%, black 46%, black 100%);opacity:0;transform:rotate(-150deg) scale(.8)}
+.capa-ninot{-webkit-mask-image:radial-gradient(circle, black 0%, black 42%, transparent 48%, transparent 100%);mask-image:radial-gradient(circle, black 0%, black 42%, transparent 48%, transparent 100%);opacity:0;transform:scale(.8)}
+@media (prefers-reduced-motion:reduce){
+  .logo-scroll{height:auto;padding:64px 0}
+  .logo-scroll-sticky{position:static;height:auto}
+  .capa-anell{opacity:1;transform:none}
+  .capa-ninot{opacity:1;transform:none}
+}
+
+/* Destacat */
+.destacat-targeta{display:block;border-radius:var(--radi);overflow:hidden;box-shadow:0 20px 50px rgba(0,61,83,.14);transition:transform .2s ease,box-shadow .2s ease}
+.destacat-targeta:hover{transform:translateY(-4px);box-shadow:0 26px 60px rgba(0,61,83,.2)}
+.destacat-targeta img{display:block;width:100%;height:auto}
 
 /* Dades */
 .tour{background:var(--verd);padding:64px 0}
@@ -161,9 +180,12 @@ footer a:hover{color:#000;text-decoration:underline}
   .portes,.tambe-graella{grid-template-columns:1fr}
   .peu-graella{grid-template-columns:1fr 1fr}
   section{padding:52px 0}
-  .hero-foto{aspect-ratio:auto;min-height:340px}
-  .hero-contingut{padding:36px 24px 30px}
+  .hero-foto{aspect-ratio:auto;min-height:480px}
+  .hero-contingut{padding:0 24px 28px}
   .hero > .wrap{padding-top:32px;padding-bottom:36px}
+  .text-hero{padding:18px 20px;max-width:none}
+  .hero h1{font-size:24px;max-width:none}
+  .hero .entradeta{display:none}
   .xifres{grid-template-columns:1fr;gap:28px}
   .xifra{padding:22px}
 }
@@ -246,6 +268,20 @@ footer a:hover{color:#000;text-decoration:underline}
   </div>
 </div>
 
+<section class="destacat">
+  <div class="wrap">
+    <div class="capcalera-seccio reveal">
+      <div>
+        <div class="eyebrow">Destacat</div>
+        <h2>Formació que no et pots perdre</h2>
+      </div>
+    </div>
+    <a class="destacat-targeta reveal" href="https://www.vallsgenera.cat/formacio/curs?idFormacio=4696&cercador=1" target="_blank" rel="noopener">
+      <img src="curs-gestio-empresarial-autonoms.jpg" alt="Curs Gestió empresarial per a autònoms (24 hores): facturació, IVA, IRPF. Del 15/09/2026 a l'1/10/2026, dimarts i dijous de 9 a 13 h. Inscripcions a vallsgenera.cat/formacio">
+    </a>
+  </div>
+</section>
+
 <section class="tour">
   <div class="wrap">
     <div class="capcalera-tour reveal">
@@ -277,6 +313,15 @@ footer a:hover{color:#000;text-decoration:underline}
     }, "*");
   });
 </script>
+
+<section class="logo-scroll" aria-hidden="true">
+  <div class="logo-scroll-sticky">
+    <div class="logo-scroll-wrap">
+      <img class="capa-anell" id="capaAnell" src="logo-icona.png" alt="">
+      <img class="capa-ninot" id="capaNinot" src="logo-icona.png" alt="">
+    </div>
+  </div>
+</section>
 
 <section id="feina">
   <div class="wrap">
@@ -524,6 +569,29 @@ footer a:hover{color:#000;text-decoration:underline}
       });
     }, { threshold: .18, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(function(el){ io.observe(el); });
+  }
+
+  // Logo animat en fer scroll: l'anell gira fins al seu lloc i el ninotet apareix
+  var logoSection = document.querySelector('.logo-scroll');
+  var anell = document.getElementById('capaAnell');
+  var ninot = document.getElementById('capaNinot');
+  if (logoSection && anell && ninot && !reduceMotion) {
+    var maxProgress = 0;
+    function actualitzaLogo(){
+      var rect = logoSection.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var raw = (vh - rect.top) / (rect.height * 0.55);
+      var clamped = Math.max(0, Math.min(1, raw));
+      maxProgress = Math.max(maxProgress, clamped);
+      var p = maxProgress;
+      anell.style.opacity = p;
+      anell.style.transform = 'rotate(' + ((1 - p) * -150) + 'deg) scale(' + (0.8 + p * 0.2) + ')';
+      ninot.style.opacity = p;
+      ninot.style.transform = 'scale(' + (0.8 + p * 0.2) + ')';
+    }
+    window.addEventListener('scroll', actualitzaLogo, { passive: true });
+    window.addEventListener('resize', actualitzaLogo);
+    actualitzaLogo();
   }
 })();
 </script>
