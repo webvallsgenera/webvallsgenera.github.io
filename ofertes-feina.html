@@ -12,9 +12,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --tinta:#10344D; --verd:#82CD28; --verd-clar:#EEF7E1;
+  --tinta:#003D53; --verd:#B0CB52; --verd-fosc:#8CA83D; --verd-clar:#F0F4E1;
   --rosa:#E07B1E; --rosa-clar:#FDEEDC;
-  --paper:#F5F6F3; --sorra:#E2E6E0; --blanc:#fff; --gris:#6B6B6B;
+  --paper:#F5F6F3; --sorra:#E2E6E0; --blanc:#fff; --gris:#929395; --gris-text:#5B5D60;
   --display:"Bricolage Grotesque",Georgia,serif;
   --cos:"Public Sans",-apple-system,system-ui,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,monospace;
@@ -28,7 +28,7 @@ a{color:inherit}
 .saltar{position:absolute;left:-9999px;background:var(--tinta);color:#fff;padding:12px 20px;z-index:200}
 .saltar:focus{left:0;top:0}
 
-.utils{background:var(--tinta);color:#D6E0DA;font-size:13.5px}
+.utils{background:var(--verd);color:var(--tinta);font-size:13.5px}
 .utils .wrap{display:flex;align-items:center;gap:20px;min-height:44px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}
 .utils a{text-decoration:none;opacity:.86}
 .utils a:hover{opacity:1;text-decoration:underline}
@@ -49,7 +49,7 @@ nav.principal a.actiu{border-color:var(--verd);color:var(--verd)}
 .menu-btn{display:none;margin-left:auto;background:var(--tinta);color:#fff;border:0;padding:11px 17px;border-radius:8px;font-family:var(--cos);font-weight:600;font-size:15px}
 
 /* Molla de pa */
-.molla{padding:18px 0 0;font-size:14px;color:var(--gris)}
+.molla{padding:18px 0 0;font-size:14px;color:var(--gris-text)}
 .molla a{text-decoration:none}
 .molla a:hover{text-decoration:underline}
 
@@ -59,7 +59,7 @@ nav.principal a.actiu{border-color:var(--verd);color:var(--verd)}
 .titol-pagina .comptador{margin-top:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .punt{width:9px;height:9px;border-radius:50%;background:var(--rosa);display:inline-block}
 .titol-pagina .comptador b{font-size:18px}
-.titol-pagina .comptador span{font-family:var(--mono);font-size:11.5px;color:var(--gris);letter-spacing:.05em}
+.titol-pagina .comptador span{font-family:var(--mono);font-size:11.5px;color:var(--gris-text);letter-spacing:.05em}
 
 /* Filtres */
 .filtres{background:var(--blanc);border:1px solid var(--sorra);border-radius:var(--radi);padding:20px 22px;display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:14px;align-items:end}
@@ -74,11 +74,11 @@ nav.principal a.actiu{border-color:var(--verd);color:var(--verd)}
 
 /* Llista d'ofertes */
 .llista{margin-top:26px;display:grid;gap:12px}
-.oferta{background:var(--blanc);border:1px solid var(--sorra);border-radius:12px;padding:22px 24px;display:grid;grid-template-columns:1fr auto;gap:16px 26px;align-items:center;text-decoration:none;transition:border-color .16s,background .16s}
-.oferta:hover{border-color:var(--verd);background:var(--verd-clar)}
+.oferta{background:var(--blanc);border:1px solid var(--sorra);border-radius:12px;padding:22px 24px;display:grid;grid-template-columns:1fr auto;gap:16px 26px;align-items:center;text-decoration:none;transition:border-color .16s,background .16s,transform .2s ease,box-shadow .2s ease}
+.oferta:hover{border-color:var(--verd);background:var(--verd-clar);transform:translateY(-4px);box-shadow:0 14px 28px rgba(0,61,83,.1)}
 .oferta h2{font-size:20px;font-weight:700;letter-spacing:-.015em;line-height:1.25}
-.oferta .meta{margin-top:9px;font-size:14.5px;color:var(--gris);display:flex;gap:8px 18px;flex-wrap:wrap}
-.oferta .ref{font-family:var(--mono);font-size:11px;color:var(--gris);letter-spacing:.05em;margin-bottom:8px}
+.oferta .meta{margin-top:9px;font-size:14.5px;color:var(--gris-text);display:flex;gap:8px 18px;flex-wrap:wrap}
+.oferta .ref{font-family:var(--mono);font-size:11px;color:var(--gris-text);letter-spacing:.05em;margin-bottom:8px}
 .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;background:var(--rosa-clar);color:var(--rosa);padding:6px 12px;border-radius:100px;white-space:nowrap}
 .tag.verd{background:var(--verd-clar);color:var(--verd)}
 .accions{display:flex;flex-direction:column;gap:10px;align-items:flex-end}
@@ -86,14 +86,14 @@ nav.principal a.actiu{border-color:var(--verd);color:var(--verd)}
 /* Buit */
 .buit{background:var(--blanc);border:1px dashed var(--sorra);border-radius:var(--radi);padding:46px 30px;text-align:center;margin-top:26px}
 .buit h2{font-family:var(--display);font-size:25px;font-weight:600;letter-spacing:-.02em}
-.buit p{margin:12px auto 0;color:var(--gris);max-width:52ch}
+.buit p{margin:12px auto 0;color:var(--gris-text);max-width:52ch}
 .buit .boto{margin-top:22px}
 
 /* Caixa lateral / ajuda */
 .dues{display:grid;grid-template-columns:1fr 340px;gap:34px;align-items:start;padding-bottom:76px}
 .ajuda{background:var(--blanc);border:1px solid var(--sorra);border-radius:var(--radi);padding:26px;position:sticky;top:100px}
 .ajuda h2{font-family:var(--display);font-size:22px;font-weight:600;letter-spacing:-.02em}
-.ajuda p{margin-top:12px;font-size:15px;color:var(--gris);line-height:1.55}
+.ajuda p{margin-top:12px;font-size:15px;color:var(--gris-text);line-height:1.55}
 .ajuda .boto{margin-top:18px;width:100%}
 .ajuda hr{border:0;border-top:1px solid var(--sorra);margin:24px 0}
 .ajuda details{font-size:15px}
@@ -103,11 +103,11 @@ nav.principal a.actiu{border-color:var(--verd);color:var(--verd)}
 .ajuda details[open] summary::after{content:"–"}
 .ajuda details p{margin-top:8px;font-size:14.5px}
 
-footer{background:var(--tinta);color:#D6E0DA;padding:48px 0 28px;font-size:15px}
-.peu-baix{display:flex;gap:20px;flex-wrap:wrap;color:#8FA79A;font-size:13.5px}
+footer{background:var(--verd);color:var(--tinta);padding:48px 0 28px;font-size:15px}
+.peu-baix{display:flex;gap:20px;flex-wrap:wrap;color:#215065;font-size:13.5px}
 .peu-baix .dreta{margin-left:auto}
-footer a{color:#D6E0DA;text-decoration:none}
-footer a:hover{text-decoration:underline}
+footer a{color:var(--tinta);text-decoration:none}
+footer a:hover{color:#000;text-decoration:underline}
 .contacte-peu{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:26px;font-weight:600}
 
 @media (max-width:960px){
@@ -122,7 +122,9 @@ footer a:hover{text-decoration:underline}
   .oferta{grid-template-columns:1fr}
   .accions{align-items:stretch}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.2,.7,.3,1),transform .6s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -165,7 +167,7 @@ footer a:hover{text-decoration:underline}
     <a href="index.html">Inici</a> / <a href="#">Feina</a> / <span>Ofertes de feina</span>
   </nav>
 
-  <div class="titol-pagina">
+  <div class="titol-pagina reveal">
     <h1>Aquí trobaràs feina</h1>
     <div class="comptador">
       <span class="punt"></span>
@@ -206,7 +208,7 @@ footer a:hover{text-decoration:underline}
 
       <div class="llista">
 
-        <a class="oferta" href="mailto:vallsgenera@valls.cat?subject=Inscripcio%20oferta%20Ref.%202026-0184%20-%20Operari%2Faria%20de%20produccio">
+        <a class="oferta reveal" style="transition-delay:0s" href="mailto:vallsgenera@valls.cat?subject=Inscripcio%20oferta%20Ref.%202026-0184%20-%20Operari%2Faria%20de%20produccio">
           <div>
             <div class="ref">Ref. 2026-0184 · Publicada el 24.07.2026</div>
             <h2>Operari/ària de producció</h2>
@@ -218,7 +220,7 @@ footer a:hover{text-decoration:underline}
           </div>
         </a>
 
-        <a class="oferta" href="mailto:vallsgenera@valls.cat?subject=Inscripcio%20oferta%20Ref.%202026-0183%20-%20Auxiliar%20d%27atencio%20a%20les%20persones">
+        <a class="oferta reveal" style="transition-delay:.07s" href="mailto:vallsgenera@valls.cat?subject=Inscripcio%20oferta%20Ref.%202026-0183%20-%20Auxiliar%20d%27atencio%20a%20les%20persones">
           <div>
             <div class="ref">Ref. 2026-0183 · Publicada el 23.07.2026</div>
             <h2>Auxiliar d'atenció a les persones</h2>
@@ -230,7 +232,7 @@ footer a:hover{text-decoration:underline}
           </div>
         </a>
 
-        <a class="oferta" href="mailto:vallsgenera@valls.cat?subject=Inscripcio%20oferta%20Ref.%202026-0181%20-%20Administratiu%2Fiva%20comptable">
+        <a class="oferta reveal" style="transition-delay:.14s" href="mailto:vallsgenera@valls.cat?subject=Inscripcio%20oferta%20Ref.%202026-0181%20-%20Administratiu%2Fiva%20comptable">
           <div>
             <div class="ref">Ref. 2026-0181 · Publicada el 21.07.2026</div>
             <h2>Administratiu/iva comptable</h2>
@@ -252,7 +254,7 @@ footer a:hover{text-decoration:underline}
       </div>
     </div>
 
-    <aside class="ajuda">
+    <aside class="ajuda reveal">
       <h2>Encara no ets a la borsa?</h2>
       <p>Per inscriure't a qualsevol oferta cal estar donat d'alta a la borsa de treball. Es fa un cop i triga uns minuts.</p>
       <a class="boto" href="mailto:vallsgenera@valls.cat?subject=Alta%20a%20la%20borsa%20de%20treball">Donar-me d'alta</a>
@@ -282,7 +284,7 @@ footer a:hover{text-decoration:underline}
     <div class="contacte-peu">
       <a href="tel:977612010">977 61 20 10</a>
       <a href="mailto:vallsgenera@valls.cat">vallsgenera@valls.cat</a>
-      <span style="color:#8FA79A;font-weight:400">De dilluns a divendres, de 8 a 15 h</span>
+      <span style="color:#215065;font-weight:400">De dilluns a divendres, de 8 a 15 h</span>
     </div>
     <div class="peu-baix">
       <a href="#">Avís legal i privacitat</a>
@@ -292,6 +294,26 @@ footer a:hover{text-decoration:underline}
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('.reveal');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .15, rootMargin: '0px 0px -30px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
 
 </body>
 </html>
