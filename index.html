@@ -65,7 +65,7 @@ nav.principal a:hover,nav.principal a:focus-visible{border-color:var(--rosa)}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-.hero h1{font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-height:1.05;font-size:clamp(30px,4.6vw,56px);max-width:22ch;overflow-wrap:break-word;hyphens:auto}
+.hero h1{font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-height:1.05;font-size:clamp(28px,4.2vw,52px);max-width:24ch;overflow-wrap:break-word}
 .hero h1 em{font-style:normal;color:var(--verd)}
 .hero .entradeta{margin-top:20px;font-size:19px;color:#EAF0F3;max-width:56ch}
 .portes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px}
@@ -161,9 +161,12 @@ footer a:hover{color:#000;text-decoration:underline}
   .portes,.tambe-graella{grid-template-columns:1fr}
   .peu-graella{grid-template-columns:1fr 1fr}
   section{padding:52px 0}
-  .hero-foto{aspect-ratio:auto;min-height:340px}
-  .hero-contingut{padding:36px 24px 30px}
+  .hero-foto{aspect-ratio:auto;min-height:480px}
+  .hero-contingut{padding:0 24px 28px}
   .hero > .wrap{padding-top:32px;padding-bottom:36px}
+  .text-hero{padding:18px 20px;max-width:none}
+  .hero h1{font-size:24px;max-width:none}
+  .hero .entradeta{display:none}
   .xifres{grid-template-columns:1fr;gap:28px}
   .xifra{padding:22px}
 }
