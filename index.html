@@ -53,7 +53,7 @@ nav.principal a:hover,nav.principal a:focus-visible{border-color:var(--rosa)}
 /* Hero */
 .hero{position:relative;padding:0;overflow:hidden;isolation:isolate}
 .hero-foto{position:relative;min-height:540px;display:flex;align-items:flex-end;background:#0C2338}
-.hero-foto video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;z-index:0}
+.hero-foto video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center;z-index:0}
 .hero-foto::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,25,38,.05) 0%,rgba(10,25,38,.25) 45%,rgba(10,25,38,.6) 100%);z-index:1}
 .hero-contingut{position:relative;z-index:2;padding:64px 24px 46px;width:100%}
 .hero-contingut .wrap{padding:0}
@@ -87,8 +87,8 @@ nav.principal a:hover,nav.principal a:focus-visible{border-color:var(--rosa)}
 
 /* Serveis */
 .serveis-graella{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.servei{background:var(--blanc);border:1px solid var(--sorra);border-radius:12px;padding:22px;text-decoration:none;display:flex;flex-direction:column;min-height:158px;transition:border-color .16s,background .16s}
-.servei:hover{border-color:var(--verd);background:var(--verd-clar)}
+.servei{background:var(--blanc);border:1px solid var(--sorra);border-radius:12px;padding:22px;text-decoration:none;display:flex;flex-direction:column;min-height:158px;transition:border-color .16s,background .16s,transform .2s ease,box-shadow .2s ease}
+.servei:hover{border-color:var(--verd);background:var(--verd-clar);transform:translateY(-4px);box-shadow:0 14px 28px rgba(0,61,83,.1)}
 .servei h3{font-size:18px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
 .servei p{margin-top:8px;font-size:14.5px;color:var(--gris-text);line-height:1.45}
 .servei .anar{margin-top:auto;padding-top:14px;font-size:14px;font-weight:700;color:var(--verd)}
@@ -117,7 +117,8 @@ section{padding:72px 0}
 .dades h2{font-family:var(--display);font-size:clamp(28px,3.8vw,44px);font-weight:700;letter-spacing:-.025em;line-height:1.08;max-width:20ch;color:var(--tinta)}
 .dades .intro{margin-top:18px;font-size:18px;color:var(--gris-text);max-width:62ch;line-height:1.6}
 .xifres{margin-top:38px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.xifra{padding:24px;border-radius:22px;background:var(--blanc)}
+.xifra{padding:24px;border-radius:22px;background:var(--blanc);transition:transform .2s ease}
+.xifra:hover{transform:translateY(-4px)}
 .xifra:nth-child(1){background:var(--verd-clar)}
 .xifra:nth-child(2){background:var(--rosa-clar)}
 .xifra:nth-child(3){background:#E9EEF6}
@@ -137,7 +138,8 @@ section{padding:72px 0}
 /* També hi trobaràs */
 .tambe{background:var(--blanc);border-top:1px solid var(--sorra);border-bottom:1px solid var(--sorra)}
 .tambe-graella{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.entitat{border:1px solid var(--sorra);border-radius:12px;padding:22px}
+.entitat{border:1px solid var(--sorra);border-radius:12px;padding:22px;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.entitat:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(0,61,83,.1);border-color:var(--verd)}
 .entitat h3{font-size:17.5px;font-weight:700}
 .entitat .horari{margin-top:10px;font-size:14.5px;color:var(--gris-text);line-height:1.5}
 .entitat a{display:inline-block;margin-top:12px;font-weight:700;font-size:14.5px;color:var(--verd);text-decoration:none;border-bottom:2px solid var(--verd)}
@@ -264,7 +266,7 @@ footer a:hover{color:#fff;text-decoration:underline}
 
 <section class="tour">
   <div class="wrap">
-    <div class="capcalera-tour">
+    <div class="capcalera-tour reveal">
       <div>
         <div class="eyebrow">35 anys · Creant oportunitats</div>
         <h2>Fes un tomb per Vallsgenera sense sortir de casa</h2>
@@ -296,58 +298,58 @@ footer a:hover{color:#fff;text-decoration:underline}
 
 <section id="feina">
   <div class="wrap">
-    <div class="capcalera-seccio">
+    <div class="capcalera-seccio reveal">
       <div>
         <div class="eyebrow">Amb cita prèvia · Dl-dv de 8 a 15 h</div>
         <h2>Serveis d'atenció directa</h2>
       </div>
     </div>
     <div class="serveis-graella">
-      <a class="servei" href="#">
+      <a class="servei reveal" style="transition-delay:0s" href="#">
         <h3>Orientació laboral</h3>
         <p>Atenció personalitzada per ajudar-te a trobar feina, adaptada a les teves capacitats.</p>
         <span class="anar">Demana hora →</span>
       </a>
-      <a class="servei" href="#" id="formacio">
+      <a class="servei reveal" style="transition-delay:.07s" href="#" id="formacio">
         <h3>Acredita't</h3>
         <p>Converteix l'experiència que ja tens en una titulació oficial.</p>
         <span class="anar">Com funciona →</span>
       </a>
-      <a class="servei" href="#">
+      <a class="servei reveal" style="transition-delay:.14s" href="#">
         <h3>Suport digital</h3>
         <p>T'acompanyem a fer els tràmits digitals que se't facin costa amunt.</p>
         <span class="anar">Demana hora →</span>
       </a>
-      <a class="servei" href="#">
+      <a class="servei reveal" style="transition-delay:.21s" href="#">
         <h3>Jornades</h3>
         <p>Sessions obertes sobre ocupació, empresa i territori.</p>
         <span class="anar">Consulta-les i inscriu-t'hi →</span>
       </a>
     </div>
 
-    <div class="capcalera-seccio" style="margin-top:56px">
+    <div class="capcalera-seccio reveal" style="margin-top:56px">
       <div>
         <div class="eyebrow">Projectes</div>
         <h2>Projectes en marxa</h2>
       </div>
     </div>
     <div class="serveis-graella" id="empresa">
-      <a class="servei" href="#">
+      <a class="servei reveal" style="transition-delay:0s" href="#">
         <h3>Col·laboratori de Valls</h3>
         <p>Apropem la innovació social i digital a tothom.</p>
         <span class="anar">Saber-ne més →</span>
       </a>
-      <a class="servei" href="#">
+      <a class="servei reveal" style="transition-delay:.07s" href="#">
         <h3>El centre és viu</h3>
         <p>Promovem l'adequació i el lloguer d'espais comercials al centre.</p>
         <span class="anar">Saber-ne més →</span>
       </a>
-      <a class="servei" href="#">
+      <a class="servei reveal" style="transition-delay:.14s" href="#">
         <h3>Pacte Camp de Valls</h3>
         <p>Projecte de promoció econòmica de Valls i l'Alt Camp.</p>
         <span class="anar">Saber-ne més →</span>
       </a>
-      <a class="servei" href="#">
+      <a class="servei reveal" style="transition-delay:.21s" href="#">
         <h3>Cessió d'espais</h3>
         <p>Sales i aules disponibles per a entitats i empreses del territori.</p>
         <span class="anar">Consultar espais →</span>
@@ -358,32 +360,32 @@ footer a:hover{color:#fff;text-decoration:underline}
 
 <section class="dades" id="dades">
   <div class="wrap">
-    <div class="eyebrow">Vallsgenera en dades · Balanç 2025</div>
-    <h2>El millor any d'activitat des que vam començar.</h2>
-    <p class="intro">Vallsgenera va tancar el 2025 amb 2.745 persones usuàries. Unes xifres que consoliden el seu paper com a principal instrument per impulsar l'ocupació, la formació i el desenvolupament econòmic local.</p>
+    <div class="eyebrow reveal">Vallsgenera en dades · Balanç 2025</div>
+    <h2 class="reveal" style="transition-delay:.06s">El millor any d'activitat des que vam començar.</h2>
+    <p class="intro reveal" style="transition-delay:.12s">Vallsgenera va tancar el 2025 amb 2.745 persones usuàries. Unes xifres que consoliden el seu paper com a principal instrument per impulsar l'ocupació, la formació i el desenvolupament econòmic local.</p>
 
     <div class="xifres">
-      <div class="xifra">
+      <div class="xifra reveal" style="transition-delay:0s">
         <div class="foto">Foto: orientació laboral</div>
-        <b>1.654</b>
+        <b data-target="1654">0</b>
         <div class="que">persones al servei d'orientació laboral</div>
         <div class="detall">Un 6,9% més que el 2024. Atenció personalitzada segons les capacitats de cadascú i les necessitats del mercat.</div>
       </div>
-      <div class="xifra">
+      <div class="xifra reveal" style="transition-delay:.07s">
         <div class="foto">Foto: itineraris laborals</div>
-        <b>510</b>
+        <b data-target="510">0</b>
         <div class="que">participants en itineraris laborals</div>
         <div class="detall">Un creixement del 32,4%. En paral·lel es van gestionar 248 ofertes laborals connectant empreses i candidatures.</div>
       </div>
-      <div class="xifra">
+      <div class="xifra reveal" style="transition-delay:.14s">
         <div class="foto">Foto: formació ocupacional</div>
-        <b>279</b>
+        <b data-target="279">0</b>
         <div class="que">persones en formació ocupacional</div>
         <div class="detall">El doble que l'any anterior. Programes FOAP del SOC en indústria alimentària i gestió administrativa, i PFI per a joves de 16 a 21 anys.</div>
       </div>
-      <div class="xifra">
+      <div class="xifra reveal" style="transition-delay:.21s">
         <div class="foto">Foto: iniciatives empresarials</div>
-        <b>91</b>
+        <b data-target="91">0</b>
         <div class="que">iniciatives empresarials impulsades</div>
         <div class="detall">Entre noves creacions i plans d'empresa, amb assessorament des de la idea de negoci fins a la posada en marxa.</div>
       </div>
@@ -393,24 +395,24 @@ footer a:hover{color:#fff;text-decoration:underline}
 
 <section>
   <div class="wrap">
-    <div class="capcalera-seccio">
+    <div class="capcalera-seccio reveal">
       <h2>Notícies</h2>
       <a class="tot" href="#">Totes les notícies</a>
     </div>
     <div class="noticies">
-      <a class="noticia" href="#">
+      <a class="noticia reveal" style="transition-delay:0s" href="#">
         <div class="data">25 maig 2026</div>
         <h3>Vallsgenera atorga el VI Premi al Compromís Social per l'Ocupació a l'empresa DESA</h3>
       </a>
-      <a class="noticia" href="#">
+      <a class="noticia reveal" style="transition-delay:.07s" href="#">
         <div class="data">13 maig 2026</div>
         <h3>Premiem els millors projectes de l'itinerari «Engeguem el nostre projecte cooperatiu»</h3>
       </a>
-      <a class="noticia" href="#">
+      <a class="noticia reveal" style="transition-delay:.14s" href="#">
         <div class="data">6 maig 2026</div>
         <h3>Es reuneix el Pacte Camp de Valls per presentar el pla estratègic i les accions del 2026</h3>
       </a>
-      <a class="noticia" href="#">
+      <a class="noticia reveal" style="transition-delay:.21s" href="#">
         <div class="data">4 maig 2026</div>
         <h3>Vallsgenera acull una jornada d'ACCIÓ sobre sostenibilitat i competitivitat empresarial</h3>
       </a>
@@ -420,24 +422,24 @@ footer a:hover{color:#fff;text-decoration:underline}
 
 <section class="tambe">
   <div class="wrap">
-    <div class="capcalera-seccio">
+    <div class="capcalera-seccio reveal">
       <div>
         <div class="eyebrow">Aquí mateix</div>
         <h2>També hi trobaràs</h2>
       </div>
     </div>
     <div class="tambe-graella">
-      <div class="entitat">
+      <div class="entitat reveal" style="transition-delay:0s">
         <h3>Escola d'Adults de Valls</h3>
         <div class="horari">Dilluns i dimecres, de 10 a 12 h<br>Tel. 977 943 588</div>
         <a href="#">Anar-hi</a>
       </div>
-      <div class="entitat">
+      <div class="entitat reveal" style="transition-delay:.07s">
         <h3>Cursos de català</h3>
         <div class="horari">Dilluns de 12 a 13.30 h i divendres de 9.30 a 13.30 h<br>Tel. 977 612 010</div>
         <a href="#">Consultar cursos</a>
       </div>
-      <div class="entitat">
+      <div class="entitat reveal" style="transition-delay:.14s">
         <h3>Benestar Social</h3>
         <div class="horari">De dilluns a divendres, de 10 a 13 h<br>Tel. 977 614 040</div>
         <a href="#">Anar-hi</a>
@@ -501,15 +503,40 @@ footer a:hover{color:#fff;text-decoration:underline}
 (function(){
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Aparició en scroll dels blocs .reveal
+  function formatNum(n){
+    return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  }
+
+  function animaComptador(el){
+    var target = parseInt(el.getAttribute('data-target'), 10);
+    if (!target) { el.textContent = '0'; return; }
+    if (reduceMotion) { el.textContent = formatNum(target); return; }
+    var start = null, durada = 1300;
+    function pas(ts){
+      if (!start) start = ts;
+      var progres = Math.min(1, (ts - start) / durada);
+      var facil = 1 - Math.pow(1 - progres, 3);
+      el.textContent = formatNum(target * facil);
+      if (progres < 1) window.requestAnimationFrame(pas);
+    }
+    window.requestAnimationFrame(pas);
+  }
+
+  // Aparició en scroll dels blocs .reveal (i comptadors de xifres)
   var revealEls = document.querySelectorAll('.reveal');
   if (reduceMotion || !('IntersectionObserver' in window)) {
-    revealEls.forEach(function(el){ el.classList.add('in'); });
+    revealEls.forEach(function(el){
+      el.classList.add('in');
+      var comptador = el.querySelector('[data-target]');
+      if (comptador) animaComptador(comptador);
+    });
   } else {
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         if (entry.isIntersecting) {
           entry.target.classList.add('in');
+          var comptador = entry.target.querySelector('[data-target]');
+          if (comptador) animaComptador(comptador);
           io.unobserve(entry.target);
         }
       });
