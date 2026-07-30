@@ -81,6 +81,9 @@ nav.principal a:hover,nav.principal a:focus-visible{border-color:var(--rosa)}
 .serveis-graella{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .servei{background:var(--blanc);border:1px solid var(--sorra);border-radius:12px;padding:22px;text-decoration:none;display:flex;flex-direction:column;min-height:158px;transition:border-color .16s,background .16s,transform .2s ease,box-shadow .2s ease}
 .servei:hover{border-color:var(--verd);background:var(--verd-clar);transform:translateY(-4px);box-shadow:0 14px 28px rgba(0,61,83,.1)}
+.servei-icona{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--verd-clar);color:var(--tinta);margin-bottom:14px;flex:none;transition:background .16s}
+.servei-icona svg{width:22px;height:22px}
+.servei:hover .servei-icona{background:var(--blanc)}
 .servei h3{font-size:18px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
 .servei p{margin-top:8px;font-size:14.5px;color:var(--gris-text);line-height:1.45}
 .servei .anar{margin-top:auto;padding-top:14px;font-size:14px;font-weight:700;color:var(--verd)}
@@ -344,21 +347,25 @@ footer a:hover{color:#000;text-decoration:underline}
     </div>
     <div class="serveis-graella">
       <a class="servei reveal" style="transition-delay:0s" href="#">
+        <span class="servei-icona"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 3v4"/><path d="M16 3v4"/></svg></span>
         <h3>Orientació laboral</h3>
         <p>Atenció personalitzada per ajudar-te a trobar feina, adaptada a les teves capacitats.</p>
         <span class="anar">Demana hora →</span>
       </a>
       <a class="servei reveal" style="transition-delay:.07s" href="#" id="formacio">
+        <span class="servei-icona"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M9 12.5L7 21l5-3 5 3-2-8.5"/></svg></span>
         <h3>Acredita't</h3>
         <p>Converteix l'experiència que ja tens en una titulació oficial.</p>
         <span class="anar">Com funciona →</span>
       </a>
       <a class="servei reveal" style="transition-delay:.14s" href="#">
+        <span class="servei-icona"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg></span>
         <h3>Suport digital</h3>
         <p>T'acompanyem a fer els tràmits digitals que se't facin costa amunt.</p>
         <span class="anar">Demana hora →</span>
       </a>
       <a class="servei reveal" style="transition-delay:.21s" href="#">
+        <span class="servei-icona"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="9" r="3.2"/><path d="M3.5 19c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5"/><circle cx="17.5" cy="8.5" r="2.4"/><path d="M15.8 13.3c2.3.3 4.2 2.4 4.2 5"/></svg></span>
         <h3>Jornades</h3>
         <p>Sessions obertes sobre ocupació, empresa i territori.</p>
         <span class="anar">Consulta-les i inscriu-t'hi →</span>
@@ -373,21 +380,25 @@ footer a:hover{color:#000;text-decoration:underline}
     </div>
     <div class="serveis-graella" id="empresa">
       <a class="servei reveal" style="transition-delay:0s" href="#">
+        <span class="servei-icona"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1.1 2h5c.1-.8.5-1.5 1.1-2A6 6 0 0 0 12 3z"/></svg></span>
         <h3>Col·laboratori de Valls</h3>
         <p>Apropem la innovació social i digital a tothom.</p>
         <span class="anar">Saber-ne més →</span>
       </a>
       <a class="servei reveal" style="transition-delay:.07s" href="#">
+        <span class="servei-icona"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9a2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0 2.5 2.5 0 0 0 5 0"/><path d="M5 9v10h14V9"/><path d="M9.5 19v-5h5v5"/></svg></span>
         <h3>El centre és viu</h3>
         <p>Promovem l'adequació i el lloguer d'espais comercials al centre.</p>
         <span class="anar">Saber-ne més →</span>
       </a>
       <a class="servei reveal" style="transition-delay:.14s" href="#">
+        <span class="servei-icona"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.5 13.5l-2.8 2.8a1.7 1.7 0 0 1-2.4 0 1.7 1.7 0 0 1 0-2.4L9 11.2"/><path d="M8.5 14.5L4.8 10.8a1.6 1.6 0 0 1 0-2.3l.6-.6a1.6 1.6 0 0 1 2.3 0L11 11.2"/><path d="M12.5 13.5l2.8 2.8a1.7 1.7 0 0 0 2.4 0 1.7 1.7 0 0 0 0-2.4L15 11.2"/><path d="M15.5 14.5l3.7-3.7a1.6 1.6 0 0 0 0-2.3l-.6-.6a1.6 1.6 0 0 0-2.3 0L13 11.2"/></svg></span>
         <h3>Pacte Camp de Valls</h3>
         <p>Projecte de promoció econòmica de Valls i l'Alt Camp.</p>
         <span class="anar">Saber-ne més →</span>
       </a>
       <a class="servei reveal" style="transition-delay:.21s" href="#">
+        <span class="servei-icona"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9"/><path d="M16 7l3 3"/><path d="M18 5l3 3"/></svg></span>
         <h3>Cessió d'espais</h3>
         <p>Sales i aules disponibles per a entitats i empreses del territori.</p>
         <span class="anar">Consultar espais →</span>
