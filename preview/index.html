@@ -121,9 +121,13 @@ section{padding:72px 0}
 .tour .eyebrow::before{background:var(--tinta)}
 .tour h2{font-family:var(--display);color:var(--tinta);font-size:clamp(27px,3.5vw,40px);font-weight:700;letter-spacing:-.025em}
 .tour p.intro{margin-top:12px;color:#215065;font-size:16.5px;max-width:60ch;line-height:1.6}
-.tour-marc{background:var(--blanc);border-radius:22px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.25)}
-.tour-marc iframe{display:block;width:100%;height:400px;border:0}
+.tour-marc{background:var(--blanc);border-radius:22px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.25);position:relative}
+.tour-marc iframe{display:block;width:100%;height:400px;border:0;position:relative;z-index:1}
+.tour-carregant{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:var(--paper);color:var(--gris-text);font-size:14px;font-weight:600}
+.tour-carregant .spinner{width:34px;height:34px;border:3px solid var(--sorra);border-top-color:var(--verd);border-radius:50%;animation:gira-spinner .8s linear infinite}
+@keyframes gira-spinner{to{transform:rotate(360deg)}}
 @media (max-width:700px){.tour-marc iframe{height:300px}}
+@media (prefers-reduced-motion:reduce){.tour-carregant .spinner{animation:none}}
 .dades{background:var(--paper)}
 .dades .eyebrow::before{background:var(--rosa)}
 .dades h2{font-family:var(--display);font-size:clamp(28px,3.8vw,44px);font-weight:700;letter-spacing:-.025em;line-height:1.08;max-width:20ch;color:var(--tinta)}
@@ -292,12 +296,23 @@ footer a:hover{color:#000;text-decoration:underline}
       </div>
     </div>
     <div class="tour-marc">
-      <iframe id="tour-embeded" name="TOUR VIRTUAL VALLSGENERA" src="https://tour.panoee.net/iframe/69de1429f416ce3dcfe7823c" frameborder="0" width="100%" height="400" scrolling="no" allowvr="yes" allow="vr; xr; accelerometer; gyroscope; autoplay;" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" loading="eager" title="Tour Virtual 360° de Vallsgenera"></iframe>
+      <div class="tour-carregant" id="tourCarregant">
+        <span class="spinner" aria-hidden="true"></span>
+        <span>Carregant el tour virtual…</span>
+      </div>
+      <iframe id="tour-embeded" name="TOUR VIRTUAL VALLSGENERA" src="https://tour.panoee.net/iframe/69de1429f416ce3dcfe7823c" frameborder="0" width="100%" height="400" scrolling="no" allowvr="yes" allow="vr; xr; accelerometer; gyroscope; autoplay;" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" loading="lazy" title="Tour Virtual 360° de Vallsgenera"></iframe>
     </div>
   </div>
 </section>
 <script>
   var pano_iframe_name = "tour-embeded";
+  (function(){
+    var iframe = document.getElementById(pano_iframe_name);
+    var carregant = document.getElementById('tourCarregant');
+    if (iframe && carregant) {
+      iframe.addEventListener('load', function(){ carregant.style.display = 'none'; });
+    }
+  })();
   window.addEventListener("devicemotion", function(e){
     var iframe = document.getElementById(pano_iframe_name);
     if (!iframe || !e.acceleration) return;
