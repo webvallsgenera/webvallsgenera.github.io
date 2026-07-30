@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --tinta:#003D53; --verd:#B0CB52; --verd-fosc:#8CA83D; --verd-clar:#F0F4E1;
+  --tinta:#003D53; --verd:#B0CB52; --verd-fosc:#8CA83D; --verd-clar:#F0F4E1; --verd-nit:#424E18;
   --rosa:#E07B1E; --rosa-clar:#FDEEDC;
   --paper:#F5F6F3; --sorra:#E2E6E0; --blanc:#fff; --gris:#929395; --gris-text:#5B5D60;
   --display:"Bricolage Grotesque",Georgia,serif;
@@ -30,7 +30,7 @@ a{color:inherit}
 .saltar:focus{left:0;top:0}
 
 /* Utilitats */
-.utils{background:var(--tinta);color:#D6E0DA;font-size:13.5px}
+.utils{background:var(--verd-nit);color:#D6E0DA;font-size:13.5px}
 .utils .wrap{display:flex;align-items:center;gap:20px;min-height:44px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}
 .utils a{text-decoration:none;opacity:.86}
 .utils a:hover{opacity:1;text-decoration:underline}
@@ -52,13 +52,13 @@ nav.principal a:hover,nav.principal a:focus-visible{border-color:var(--rosa)}
 
 /* Hero */
 .hero{position:relative;padding:0;overflow:hidden;isolation:isolate}
-.hero-foto{position:relative;min-height:540px;display:flex;align-items:flex-end;background:#0C2338}
-.hero-foto video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center;z-index:0}
-.hero-foto::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,25,38,.05) 0%,rgba(10,25,38,.25) 45%,rgba(10,25,38,.6) 100%);z-index:1}
+.hero-foto{position:relative;aspect-ratio:16/9;display:flex;align-items:flex-end;background:#1B220B;overflow:hidden}
+.hero-foto video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0}
+.hero-foto::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,30,10,.05) 0%,rgba(24,30,10,.25) 45%,rgba(24,30,10,.6) 100%);z-index:1}
 .hero-contingut{position:relative;z-index:2;padding:64px 24px 46px;width:100%}
 .hero-contingut .wrap{padding:0}
 .hero > .wrap{padding-top:46px;padding-bottom:56px}
-.text-hero{display:inline-block;background:rgba(10,25,38,.68);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);border-radius:18px;padding:28px 32px;max-width:44ch}
+.text-hero{display:inline-block;background:rgba(24,30,10,.68);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);border-radius:18px;padding:28px 32px;max-width:44ch}
 .hero h1{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.35)}
 .hero .entradeta{color:#EAF0F3}
 .credit-foto{position:absolute;bottom:14px;left:20px;z-index:2;font-size:11.5px;color:rgba(255,255,255,.7);font-weight:500;text-shadow:0 1px 4px rgba(0,0,0,.5)}
@@ -103,7 +103,7 @@ section{padding:72px 0}
 .eyebrow::before{content:"";width:20px;height:3px;border-radius:2px;background:var(--verd)}
 
 /* Dades */
-.tour{background:var(--tinta);padding:64px 0}
+.tour{background:var(--verd-nit);padding:64px 0}
 .tour .capcalera-tour{display:flex;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:26px}
 .tour .eyebrow{color:#fff}
 .tour .eyebrow::before{background:var(--verd)}
@@ -145,7 +145,7 @@ section{padding:72px 0}
 .entitat a{display:inline-block;margin-top:12px;font-weight:700;font-size:14.5px;color:var(--verd);text-decoration:none;border-bottom:2px solid var(--verd)}
 
 /* Peu */
-footer{background:var(--tinta);color:#D6E0DA;padding:56px 0 30px;font-size:15px}
+footer{background:var(--verd-nit);color:#D6E0DA;padding:56px 0 30px;font-size:15px}
 .peu-graella{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
 footer h4{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8FA79A;margin-bottom:14px}
 footer ul{list-style:none;display:grid;gap:9px}
@@ -168,7 +168,7 @@ footer a:hover{color:#fff;text-decoration:underline}
   .portes,.tambe-graella{grid-template-columns:1fr}
   .peu-graella{grid-template-columns:1fr 1fr}
   section{padding:52px 0}
-  .hero-foto{min-height:340px}
+  .hero-foto{aspect-ratio:auto;min-height:340px}
   .hero-contingut{padding:36px 24px 30px}
   .hero > .wrap{padding-top:32px;padding-bottom:36px}
   .xifres{grid-template-columns:1fr;gap:28px}
