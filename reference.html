@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<title>Logo scroll animation — reference</title>
+<style>
+  body{margin:0;font-family:system-ui,sans-serif;background:#faf9f7}
+  .filler{height:100vh;display:flex;align-items:center;justify-content:center;color:rgba(0,0,0,.3);font-size:14px}
+  .logo-section{height:220vh;position:relative}
+  .logo-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center}
+  .logo-wrap{width:260px;height:296px;position:relative}
+  .ring-layer,.figure-layer{position:absolute;inset:0;width:100%;height:100%;will-change:transform,opacity}
+  /* Ring = annulus mask: hides the center (where the figure is), keeps only the outer band. */
+  .ring-layer{
+    -webkit-mask-image:radial-gradient(circle, transparent 0%, transparent 40%, black 46%, black 100%);
+    mask-image:radial-gradient(circle, transparent 0%, transparent 40%, black 46%, black 100%);
+    opacity:0;
+    transform:rotate(-150deg) scale(0.8);
+  }
+  /* Figure = inverse mask: keeps only the center circle, hides the ring band. */
+  .figure-layer{
+    -webkit-mask-image:radial-gradient(circle, black 0%, black 42%, transparent 48%, transparent 100%);
+    mask-image:radial-gradient(circle, black 0%, black 42%, transparent 48%, transparent 100%);
+    opacity:0;
+    transform:scale(0.8);
+  }
+</style>
+</head>
+<body>
+  <div class="filler">↓ fes scroll</div>
+
+  <section class="logo-section" id="logoSection">
+    <div class="logo-sticky">
+      <div class="logo-wrap">
+        <img class="ring-layer" id="ringLayer" src="logo.png" alt="">
+        <img class="figure-layer" id="figureLayer" src="logo.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <div class="filler">contingut de sota</div>
+
+  <script>
+    const section = document.getElementById('logoSection');
+    const ring = document.getElementById('ringLayer');
+    const figure = document.getElementById('figureLayer');
+    let maxProgress = 0;
+
+    function update() {
+      const rect = section.getBoundingClientRect();
+      const vh = window.innerHeight;
+      // Progress window: starts when the section's top enters the bottom of the
+      // viewport, finishes once we've scrolled through ~55% of the section's height.
+      const raw = (vh - rect.top) / (rect.height * 0.55);
+      const clamped = Math.max(0, Math.min(1, raw));
+      // Monotonic: once revealed it never re-hides on scroll-up (matches "plays once, stays put").
+      maxProgress = Math.max(maxProgress, clamped);
+      const p = maxProgress;
+
+      ring.style.opacity = p;
+      ring.style.transform = `rotate(${(1 - p) * -150}deg) scale(${0.8 + p * 0.2})`;
+      figure.style.opacity = p;
+      figure.style.transform = `scale(${0.8 + p * 0.2})`;
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  </script>
+</body>
+</html>
