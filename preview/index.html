@@ -37,12 +37,25 @@ a{color:inherit}
 .utils .dreta{margin-left:auto;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
 
 /* Capçalera */
-header.top{background:var(--blanc);border-bottom:1px solid var(--sorra);position:sticky;top:0;z-index:50}
+header.top{background:var(--blanc);border-bottom:1px solid var(--sorra);position:sticky;top:0;z-index:50;transition:background .3s ease,border-color .3s ease}
 header.top .wrap{display:flex;align-items:center;gap:28px;height:78px}
 .marca{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:27px;letter-spacing:-.025em}
 .marca-logo{display:flex;align-items:center}
-.marca-logo img{display:block;height:52px;width:auto}
+.marca-logo img{display:block;height:52px;width:auto;transition:height .3s ease}
 .marca .genera{color:var(--verd)}
+
+body.home header.top{background:transparent;border-bottom-color:transparent}
+body.home header.top .wrap{height:96px}
+body.home .hero{margin-top:-96px}
+body.home header.top .marca-logo img{height:72px}
+body.home header.top nav.principal a{color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+body.home header.top nav.principal a:hover,body.home header.top nav.principal a:focus-visible{border-color:#fff}
+body.home header.top .menu-btn{background:rgba(255,255,255,.18);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+body.home header.top.es-opac{background:var(--blanc);border-bottom-color:var(--sorra)}
+body.home header.top.es-opac .marca-logo img{height:52px}
+body.home header.top.es-opac nav.principal a{color:var(--tinta);text-shadow:none}
+body.home header.top.es-opac nav.principal a:hover,body.home header.top.es-opac nav.principal a:focus-visible{border-color:var(--rosa)}
+body.home header.top.es-opac .menu-btn{background:var(--tinta);backdrop-filter:none;-webkit-backdrop-filter:none}
 .aniversari{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--rosa);border:1px solid var(--rosa);border-radius:100px;padding:4px 9px;line-height:1}
 nav.principal{margin-left:auto;display:flex;gap:28px;font-weight:600;font-size:15.5px}
 nav.principal a{text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
@@ -53,13 +66,13 @@ nav.principal a:hover,nav.principal a:focus-visible{border-color:var(--rosa)}
 .hero{position:relative;padding:0;overflow:hidden;isolation:isolate}
 .hero-foto{position:relative;aspect-ratio:16/9;display:flex;align-items:flex-end;background:#1B220B;overflow:hidden}
 .hero-foto video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0}
-.hero-foto::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,30,10,.05) 0%,rgba(24,30,10,.25) 45%,rgba(24,30,10,.6) 100%);z-index:1}
+.hero-foto::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,4,.18) 0%,rgba(10,14,4,.32) 45%,rgba(10,14,4,.68) 100%);z-index:1}
 .hero-contingut{position:relative;z-index:2;padding:64px 24px 46px;width:100%}
 .hero-contingut .wrap{padding:0}
 .hero > .wrap{padding-top:46px;padding-bottom:56px}
-.text-hero{display:inline-block;background:rgba(24,30,10,.68);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);border-radius:18px;padding:28px 32px;max-width:min(54ch,90vw)}
-.hero h1{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.35)}
-.hero .entradeta{color:#EAF0F3}
+.text-hero{display:block;margin:0 auto;text-align:center;max-width:min(60ch,90vw)}
+.hero h1{color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.6),0 1px 4px rgba(0,0,0,.5)}
+.hero .entradeta{color:#EAF0F3;text-shadow:0 1px 8px rgba(0,0,0,.55)}
 .credit-foto{position:absolute;bottom:14px;left:20px;z-index:2;font-size:11.5px;color:rgba(255,255,255,.7);font-weight:500;text-shadow:0 1px 4px rgba(0,0,0,.5)}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
 .reveal.in{opacity:1;transform:none}
@@ -186,10 +199,13 @@ footer a:hover{color:#000;text-decoration:underline}
   .portes,.tambe-graella{grid-template-columns:1fr}
   .peu-graella{grid-template-columns:1fr 1fr}
   section{padding:52px 0}
+  body.home header.top .wrap{height:84px}
+  body.home header.top .marca-logo img{height:58px}
+  body.home .hero{margin-top:-84px}
   .hero-foto{aspect-ratio:auto;min-height:480px}
   .hero-contingut{padding:0 24px 28px}
   .hero > .wrap{padding-top:32px;padding-bottom:36px}
-  .text-hero{padding:18px 20px;max-width:none}
+  .text-hero{max-width:none}
   .hero h1{font-size:24px;max-width:none}
   .hero .entradeta{display:none}
   .xifres{grid-template-columns:1fr;gap:28px}
@@ -202,7 +218,7 @@ footer a:hover{color:#000;text-decoration:underline}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
-<body>
+<body class="home">
 
 <a class="saltar" href="#principal">Vés al contingut principal</a>
 
@@ -569,6 +585,16 @@ footer a:hover{color:#000;text-decoration:underline}
       if (progres < 1) window.requestAnimationFrame(pas);
     }
     window.requestAnimationFrame(pas);
+  }
+
+  // Capçalera transparent sobre el hero: passa a sòlida en fer scroll
+  var capsalera = document.querySelector('header.top');
+  if (capsalera && document.body.classList.contains('home')) {
+    function actualitzaCapsalera(){
+      capsalera.classList.toggle('es-opac', window.scrollY > 40);
+    }
+    window.addEventListener('scroll', actualitzaCapsalera, { passive: true });
+    actualitzaCapsalera();
   }
 
   // Aparició en scroll dels blocs .reveal (i comptadors de xifres)
