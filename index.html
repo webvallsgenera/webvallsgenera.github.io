@@ -71,14 +71,15 @@ nav.principal a:hover,nav.principal a:focus-visible{border-color:var(--rosa)}
 .hero-contingut{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:64px 24px 46px;width:100%}
 .hero-contingut .wrap{padding:0}
 .hero > .wrap{padding-top:46px;padding-bottom:56px}
-.text-hero{display:block;margin:0 auto;text-align:center;max-width:min(60ch,90vw)}
+.text-hero{display:block;margin:0 auto;text-align:center;max-width:min(1200px,92vw)}
 .hero h1{color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.6),0 1px 4px rgba(0,0,0,.5)}
 .hero .entradeta{color:#EAF0F3;text-shadow:0 1px 8px rgba(0,0,0,.55)}
 .credit-foto{position:absolute;bottom:14px;left:20px;z-index:2;font-size:11.5px;color:rgba(255,255,255,.7);font-weight:500;text-shadow:0 1px 4px rgba(0,0,0,.5)}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
-.hero h1{font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-height:1.05;font-size:clamp(28px,4.2vw,52px);max-width:24ch;overflow-wrap:break-word}
+.hero h1{font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-height:1.05;font-size:clamp(28px,4.2vw,52px);max-width:48ch;overflow-wrap:break-word}
+.salt-desktop{display:block}
 .hero h1 em{font-style:normal;color:var(--verd)}
 .hero .entradeta{margin-top:20px;font-size:19px;color:#EAF0F3;max-width:56ch}
 .portes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px}
@@ -207,6 +208,7 @@ footer a:hover{color:#000;text-decoration:underline}
   .hero > .wrap{padding-top:32px;padding-bottom:36px}
   .text-hero{max-width:none}
   .hero h1{font-size:22px;max-width:none;text-shadow:none}
+  .salt-desktop{display:none}
   .hero .entradeta{display:none}
   .xifres{grid-template-columns:1fr;gap:28px}
   .xifra{padding:22px}
@@ -264,7 +266,7 @@ footer a:hover{color:#000;text-decoration:underline}
     <div class="hero-contingut">
       <div class="wrap">
         <div class="text-hero">
-          <h1 class="reveal">Impulsem l'ocupació, la formació i el desenvolupament econòmic local</h1>
+          <h1 class="reveal">Impulsem l'ocupació, la formació<br class="salt-desktop"> i el desenvolupament econòmic local</h1>
           <p class="entradeta reveal" style="transition-delay:.12s">Busques feina? Vols formar-te? Tens una empresa i necessites personal? Digues-nos què necessites i t'ho posem fàcil.</p>
         </div>
       </div>
