@@ -126,9 +126,13 @@ section{padding:72px 0}
 }
 
 /* Destacat */
+.destacats-graella{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .destacat-targeta{display:block;border-radius:var(--radi);overflow:hidden;box-shadow:0 20px 50px rgba(0,61,83,.14);transition:transform .2s ease,box-shadow .2s ease}
 .destacat-targeta:hover{transform:translateY(-4px);box-shadow:0 26px 60px rgba(0,61,83,.2)}
-.destacat-targeta img{display:block;width:100%;height:auto}
+.destacat-targeta img,.destacat-targeta video{display:block;width:100%;height:auto;background:#000}
+.destacat-peu{margin-top:14px;font-size:15px;color:var(--gris-text)}
+.destacat-peu strong{color:var(--tinta);font-weight:700}
+@media (max-width:820px){.destacats-graella{grid-template-columns:1fr}}
 
 /* Dades */
 .tour{background:var(--verd);padding:64px 0}
@@ -295,13 +299,26 @@ footer a:hover{color:#000;text-decoration:underline}
   <div class="wrap">
     <div class="capcalera-seccio reveal">
       <div>
-        <div class="eyebrow">Destacat</div>
-        <h2>Formació que no et pots perdre</h2>
+        <div class="eyebrow">35 anys · Creant oportunitats</div>
+        <h2>Destacats</h2>
       </div>
     </div>
-    <a class="destacat-targeta reveal" href="https://www.vallsgenera.cat/formacio/curs?idFormacio=4696&cercador=1" target="_blank" rel="noopener">
-      <img src="curs-gestio-empresarial-autonoms.jpg" alt="Curs Gestió empresarial per a autònoms (24 hores): facturació, IVA, IRPF. Del 15/09/2026 a l'1/10/2026, dimarts i dijous de 9 a 13 h. Inscripcions a vallsgenera.cat/formacio">
-    </a>
+    <div class="destacats-graella">
+      <div class="reveal">
+        <div class="destacat-targeta">
+          <video controls preload="none" poster="35-anys-poster.jpg">
+            <source src="35-anys-vallsgenera.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="destacat-peu"><strong>35 anys de Vallsgenera</strong> — reviu la jornada de teambuilding amb què ho vam celebrar.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.1s">
+        <a class="destacat-targeta" href="https://www.vallsgenera.cat/formacio/curs?idFormacio=4696&cercador=1" target="_blank" rel="noopener">
+          <img src="curs-gestio-empresarial-autonoms.jpg" alt="Curs Gestió empresarial per a autònoms (24 hores): facturació, IVA, IRPF. Del 15/09/2026 a l'1/10/2026, dimarts i dijous de 9 a 13 h. Inscripcions a vallsgenera.cat/formacio">
+        </a>
+        <p class="destacat-peu"><strong>Formació que no et pots perdre</strong> — Curs de gestió empresarial per a autònoms.</p>
+      </div>
+    </div>
   </div>
 </section>
 
