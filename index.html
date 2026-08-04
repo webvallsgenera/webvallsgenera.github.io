@@ -134,23 +134,39 @@ section{padding:72px 0}
 .destacat-peu strong{color:var(--tinta);font-weight:700}
 @media (max-width:820px){.destacats-graella{grid-template-columns:1fr}}
 
-/* Icones de serveis, grans, animades al llarg del scroll */
+/* Icones de serveis, grans, repartides per la web i animades al llarg del scroll */
 .icones-tira{background:var(--paper)}
 .icones-llista{margin-top:10px}
 .icona-fila{display:flex;align-items:center;gap:56px;padding:46px 0}
 .icona-fila:not(:last-child){border-bottom:1px solid var(--sorra)}
 .icona-fila:nth-child(even){flex-direction:row-reverse}
-.icona-visual{flex:0 0 auto;width:40%;display:flex;justify-content:center}
-.icona-visual img{width:100%;max-width:320px;height:auto;display:block;will-change:transform}
+.icona-visual{flex:0 0 auto;width:40%;display:flex;justify-content:center;will-change:transform}
+.icona-mida{position:relative;width:100%;max-width:320px}
+.icona-mida img{display:block;width:100%;height:auto}
+.icona-mida .icona-capa{position:absolute;inset:0;width:100%;height:100%}
 .icona-text{flex:1}
 .icona-text h3{font-family:var(--display);font-weight:800;font-size:clamp(22px,2.6vw,32px);color:var(--tinta);letter-spacing:-.02em;margin-bottom:12px}
 .icona-text p{color:var(--gris-text);font-size:16.5px;max-width:40ch}
 @media (max-width:820px){
   .icona-fila,.icona-fila:nth-child(even){flex-direction:column;text-align:center;gap:22px;padding:30px 0}
   .icona-visual{width:100%}
-  .icona-visual img{max-width:190px}
+  .icona-mida{max-width:190px}
 }
-@media (prefers-reduced-motion:reduce){.icona-visual img{transform:none!important}}
+
+/* Micro-animacions per icona */
+@keyframes gira-engranatge{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(10deg)}}
+@keyframes gira-brujola{0%,100%{transform:rotate(-13deg)}50%{transform:rotate(13deg)}}
+@keyframes pica-martell{0%,100%{transform:rotate(0deg)}12%{transform:rotate(-16deg)}26%{transform:rotate(2deg)}100%{transform:rotate(0deg)}}
+@keyframes cauen-gotes{0%{transform:translateY(-12%);opacity:0}18%{opacity:1}72%{opacity:1}100%{transform:translateY(45%);opacity:0}}
+.icona-capa-engranatge{-webkit-mask-image:radial-gradient(ellipse 23% 27% at 51% 51%,black 0%,black 78%,transparent 92%,transparent 100%);mask-image:radial-gradient(ellipse 23% 27% at 51% 51%,black 0%,black 78%,transparent 92%,transparent 100%);transform-origin:51% 51%;animation:gira-engranatge 4.5s ease-in-out infinite}
+.icona-base-engranatge{-webkit-mask-image:radial-gradient(ellipse 23% 27% at 51% 51%,transparent 0%,transparent 78%,black 92%,black 100%);mask-image:radial-gradient(ellipse 23% 27% at 51% 51%,transparent 0%,transparent 78%,black 92%,black 100%)}
+.icona-girar{animation:gira-brujola 6s ease-in-out infinite}
+.icona-capa-martell{transform-origin:92% 46%;animation:pica-martell 2.1s ease-in-out infinite}
+.icona-capa-gotes{animation:cauen-gotes 1.7s ease-in infinite}
+@media (prefers-reduced-motion:reduce){
+  .icona-visual{transform:none!important}
+  .icona-capa-engranatge,.icona-girar,.icona-capa-martell,.icona-capa-gotes{animation:none!important}
+}
 
 /* Dades */
 .tour{background:var(--verd);padding:64px 0}
@@ -161,11 +177,11 @@ section{padding:72px 0}
 .tour p.intro{margin-top:12px;color:#215065;font-size:16.5px;max-width:60ch;line-height:1.6}
 .tour-marc{background:var(--blanc);border-radius:22px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.25);position:relative}
 .tour-marc iframe{display:block;width:100%;height:400px;border:0;position:relative;z-index:1}
-.tour-etiqueta{position:absolute;top:22px;left:22px;z-index:3;background:rgba(0,61,83,.85);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);color:#fff;font-family:var(--display);font-weight:800;letter-spacing:-.02em;font-size:clamp(18px,2.4vw,30px);padding:12px 24px;border-radius:999px;pointer-events:none}
+.tour-etiqueta{color:var(--tinta);font-family:var(--display);font-weight:800;letter-spacing:-.03em;font-size:clamp(34px,6vw,64px);margin:0 0 22px;line-height:1}
 .tour-carregant{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:var(--paper);color:var(--gris-text);font-size:14px;font-weight:600}
 .tour-carregant .spinner{width:34px;height:34px;border:3px solid var(--sorra);border-top-color:var(--verd);border-radius:50%;animation:gira-spinner .8s linear infinite}
 @keyframes gira-spinner{to{transform:rotate(360deg)}}
-@media (max-width:700px){.tour-marc iframe{height:300px}.tour-etiqueta{top:14px;left:14px;padding:9px 18px}}
+@media (max-width:700px){.tour-marc iframe{height:300px}}
 @media (prefers-reduced-motion:reduce){.tour-carregant .spinner{animation:none}}
 .dades{background:var(--paper)}
 .dades .eyebrow::before{background:var(--rosa)}
@@ -314,6 +330,37 @@ footer a:hover{color:#000;text-decoration:underline}
   </div>
 </div>
 
+<section class="icones-tira">
+  <div class="wrap">
+    <div class="capcalera-seccio reveal">
+      <div>
+        <div class="eyebrow">Feina</div>
+        <h2>El primer pas</h2>
+      </div>
+    </div>
+    <div class="icones-llista">
+      <div class="icona-fila">
+        <div class="icona-visual reveal" data-speed="-.18">
+          <div class="icona-mida"><img src="icona-encaixada.png" alt=""></div>
+        </div>
+        <div class="icona-text reveal" style="transition-delay:.08s">
+          <h3>Troba feina</h3>
+          <p>T'ajudem a trobar la feina que busques, amb borsa de treball i orientació personalitzada.</p>
+        </div>
+      </div>
+      <div class="icona-fila">
+        <div class="icona-visual reveal" data-speed=".22">
+          <div class="icona-mida"><img class="icona-girar" src="icona-brujola.png" alt=""></div>
+        </div>
+        <div class="icona-text reveal" style="transition-delay:.08s">
+          <h3>Orienta't professionalment</h3>
+          <p>Servei d'orientació laboral individual per definir el teu itinerari.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="destacat">
   <div class="wrap">
     <div class="capcalera-seccio reveal">
@@ -350,8 +397,8 @@ footer a:hover{color:#000;text-decoration:underline}
         <p class="intro">Amb motiu del 35è aniversari, obrim les portes de l'edifici en un tour virtual de 360°. Mou-te per les sales, coneix els espais i descobreix on es fa cada servei.</p>
       </div>
     </div>
+    <div class="tour-etiqueta reveal">Tour virtual</div>
     <div class="tour-marc">
-      <div class="tour-etiqueta">Tour virtual</div>
       <div class="tour-carregant" id="tourCarregant">
         <span class="spinner" aria-hidden="true"></span>
         <span>Carregant el tour virtual…</span>
@@ -391,6 +438,43 @@ footer a:hover{color:#000;text-decoration:underline}
     <img class="capa-ninot" id="capaNinot" src="logo-icona.png" alt="">
   </div>
 </div>
+
+<section class="icones-tira">
+  <div class="wrap">
+    <div class="capcalera-seccio reveal">
+      <div>
+        <div class="eyebrow">Formació</div>
+        <h2>Segueix creixent</h2>
+      </div>
+    </div>
+    <div class="icones-llista">
+      <div class="icona-fila">
+        <div class="icona-visual reveal" data-speed="-.16">
+          <div class="icona-mida">
+            <img src="icona-puzzle-base.png" alt="">
+            <img class="icona-capa icona-capa-martell" src="icona-puzzle-martell.png" alt="" aria-hidden="true">
+          </div>
+        </div>
+        <div class="icona-text reveal" style="transition-delay:.08s">
+          <h3>Aprèn un ofici</h3>
+          <p>Formació ocupacional per adquirir noves competències professionals.</p>
+        </div>
+      </div>
+      <div class="icona-fila">
+        <div class="icona-visual reveal" data-speed=".2">
+          <div class="icona-mida">
+            <img class="icona-base-engranatge" src="icona-bombeta.png" alt="">
+            <img class="icona-capa icona-capa-engranatge" src="icona-bombeta.png" alt="" aria-hidden="true">
+          </div>
+        </div>
+        <div class="icona-text reveal" style="transition-delay:.08s">
+          <h3>Millora les teves competències</h3>
+          <p>Cursos i tallers per créixer professionalment, sigui quin sigui el teu punt de partida.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="feina">
   <div class="wrap">
@@ -466,48 +550,27 @@ footer a:hover{color:#000;text-decoration:underline}
   <div class="wrap">
     <div class="capcalera-seccio reveal">
       <div>
-        <div class="eyebrow">Què t'oferim</div>
-        <h2>Un impuls per a cada moment</h2>
+        <div class="eyebrow">Empresa</div>
+        <h2>Fes-ho realitat</h2>
       </div>
     </div>
     <div class="icones-llista">
       <div class="icona-fila">
-        <div class="icona-visual reveal"><img src="icona-encaixada.png" data-speed=".16" alt=""></div>
-        <div class="icona-text reveal" style="transition-delay:.08s">
-          <h3>Troba feina</h3>
-          <p>T'ajudem a trobar la feina que busques, amb borsa de treball i orientació personalitzada.</p>
+        <div class="icona-visual reveal" data-speed="-.2">
+          <div class="icona-mida">
+            <img src="icona-regadora-base.png" alt="">
+            <img class="icona-capa icona-capa-gotes" src="icona-regadora-gotes.png" alt="" aria-hidden="true">
+          </div>
         </div>
-      </div>
-      <div class="icona-fila">
-        <div class="icona-visual reveal"><img src="icona-brujola.png" data-speed=".22" alt=""></div>
-        <div class="icona-text reveal" style="transition-delay:.08s">
-          <h3>Orienta't professionalment</h3>
-          <p>Servei d'orientació laboral individual per definir el teu itinerari.</p>
-        </div>
-      </div>
-      <div class="icona-fila">
-        <div class="icona-visual reveal"><img src="icona-puzzle.png" data-speed=".14" alt=""></div>
-        <div class="icona-text reveal" style="transition-delay:.08s">
-          <h3>Aprèn un ofici</h3>
-          <p>Formació ocupacional per adquirir noves competències professionals.</p>
-        </div>
-      </div>
-      <div class="icona-fila">
-        <div class="icona-visual reveal"><img src="icona-bombeta.png" data-speed=".2" alt=""></div>
-        <div class="icona-text reveal" style="transition-delay:.08s">
-          <h3>Millora les teves competències</h3>
-          <p>Cursos i tallers per créixer professionalment, sigui quin sigui el teu punt de partida.</p>
-        </div>
-      </div>
-      <div class="icona-fila">
-        <div class="icona-visual reveal"><img src="icona-regadora.png" data-speed=".18" alt=""></div>
         <div class="icona-text reveal" style="transition-delay:.08s">
           <h3>Fes créixer la teva empresa</h3>
           <p>Suport i assessorament per fer créixer el teu negoci.</p>
         </div>
       </div>
       <div class="icona-fila">
-        <div class="icona-visual reveal"><img src="icona-coet.png" data-speed=".24" alt=""></div>
+        <div class="icona-visual reveal" data-speed-y=".22">
+          <div class="icona-mida"><img src="icona-coet.png" alt=""></div>
+        </div>
         <div class="icona-text reveal" style="transition-delay:.08s">
           <h3>Posa en marxa un negoci</h3>
           <p>T'acompanyem en la creació d'empreses, del pla al llançament.</p>
@@ -691,20 +754,23 @@ footer a:hover{color:#000;text-decoration:underline}
     actualitzaCapsalera();
   }
 
-  // Parallax suau a les icones de serveis (només escriptori, en mòbil l'espai és massa just)
-  var iconaItems = document.querySelectorAll('.icona-visual');
+  // Parallax suau a les icones de serveis: horitzontal, excepte el coet que puja/baixa (només escriptori)
+  var iconaItems = document.querySelectorAll('.icona-visual[data-speed], .icona-visual[data-speed-y]');
   if (iconaItems.length && !reduceMotion && window.innerWidth > 820) {
     function actualitzaIcones(){
       var vh = window.innerHeight;
       iconaItems.forEach(function(item){
-        var img = item.querySelector('img[data-speed]');
-        if (!img) return;
-        var speed = parseFloat(img.getAttribute('data-speed')) || 0.2;
-        // mesurem el contenidor (sense transform) perquè no s'acumuli el desplaçament
         var rect = item.getBoundingClientRect();
         var centre = rect.top + rect.height / 2;
-        var offset = (vh / 2 - centre) * speed;
-        img.style.transform = 'translateY(' + offset + 'px)';
+        var speedY = item.getAttribute('data-speed-y');
+        if (speedY !== null) {
+          var offsetY = (vh / 2 - centre) * parseFloat(speedY);
+          item.style.transform = 'translateY(' + offsetY + 'px)';
+        } else {
+          var speed = parseFloat(item.getAttribute('data-speed')) || 0.2;
+          var offsetX = (vh / 2 - centre) * speed;
+          item.style.transform = 'translateX(' + offsetX + 'px)';
+        }
       });
     }
     window.addEventListener('scroll', actualitzaIcones, { passive: true });
