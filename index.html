@@ -119,12 +119,12 @@ section{padding:72px 0}
 
 /* Logo animat en fer scroll: superposat al pas del tour als serveis, sense secció pròpia */
 .logo-transicio{position:relative;height:0}
-.logo-transicio .logo-scroll-wrap{position:absolute;top:-150px;right:6%;width:230px;height:262px;z-index:5;pointer-events:none}
+.logo-transicio .logo-scroll-wrap{position:absolute;top:-150px;left:50%;transform:translateX(-50%);width:230px;height:262px;z-index:5;pointer-events:none}
 .capa-anell,.capa-ninot{position:absolute;inset:0;width:100%;height:100%;will-change:transform,opacity}
 .capa-anell{-webkit-mask-image:radial-gradient(circle, transparent 0%, transparent 40%, black 46%, black 100%);mask-image:radial-gradient(circle, transparent 0%, transparent 40%, black 46%, black 100%);opacity:0;transform:rotate(-150deg) scale(.8)}
 .capa-ninot{-webkit-mask-image:radial-gradient(circle, black 0%, black 42%, transparent 48%, transparent 100%);mask-image:radial-gradient(circle, black 0%, black 42%, transparent 48%, transparent 100%);opacity:0;transform:scale(.8)}
 @media (max-width:820px){
-  .logo-transicio .logo-scroll-wrap{width:170px;height:194px;top:-100px;right:4%}
+  .logo-transicio .logo-scroll-wrap{width:170px;height:194px;top:-100px}
 }
 @media (prefers-reduced-motion:reduce){
   .capa-anell{opacity:1;transform:none}
@@ -132,13 +132,11 @@ section{padding:72px 0}
 }
 
 /* Destacat */
-.destacats-graella{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .destacat-targeta{display:block;border-radius:var(--radi);overflow:hidden;box-shadow:0 20px 50px rgba(0,61,83,.14);transition:transform .2s ease,box-shadow .2s ease}
 .destacat-targeta:hover{transform:translateY(-4px);box-shadow:0 26px 60px rgba(0,61,83,.2)}
 .destacat-targeta img,.destacat-targeta video{display:block;width:100%;height:auto;background:#000}
 .destacat-peu{margin-top:14px;font-size:15px;color:var(--gris-text)}
 .destacat-peu strong{color:var(--tinta);font-weight:700}
-@media (max-width:820px){.destacats-graella{grid-template-columns:1fr}}
 
 /* Icones de serveis, grans, repartides per la web, entren de fora cap a dins en fer scroll */
 .icones-tira{background:var(--paper)}
@@ -215,6 +213,7 @@ section{padding:72px 0}
 .xifra .detall{margin-top:8px;font-size:13.5px;color:var(--gris-text);line-height:1.5}
 
 /* Notícies */
+.video-noticia{max-width:420px;margin-bottom:36px}
 .noticies{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
 .noticia{text-decoration:none;display:block}
 .noticia .data{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;color:var(--rosa);text-transform:uppercase}
@@ -382,26 +381,13 @@ footer a:hover{color:#000;text-decoration:underline}
   <div class="wrap">
     <div class="capcalera-seccio reveal">
       <div>
-        <div class="eyebrow">35 anys · Creant oportunitats</div>
-        <h2>Destacats</h2>
+        <div class="eyebrow">Destacat</div>
+        <h2>Formació que no et pots perdre</h2>
       </div>
     </div>
-    <div class="destacats-graella">
-      <div class="reveal">
-        <div class="destacat-targeta">
-          <video controls preload="none" poster="35-anys-poster.jpg">
-            <source src="35-anys-vallsgenera.mp4" type="video/mp4">
-          </video>
-        </div>
-        <p class="destacat-peu"><strong>35 anys de Vallsgenera</strong> — reviu la jornada de teambuilding amb què ho vam celebrar.</p>
-      </div>
-      <div class="reveal" style="transition-delay:.1s">
-        <a class="destacat-targeta" href="https://www.vallsgenera.cat/formacio/curs?idFormacio=4696&cercador=1" target="_blank" rel="noopener">
-          <img src="curs-gestio-empresarial-autonoms.jpg" alt="Curs Gestió empresarial per a autònoms (24 hores): facturació, IVA, IRPF. Del 15/09/2026 a l'1/10/2026, dimarts i dijous de 9 a 13 h. Inscripcions a vallsgenera.cat/formacio">
-        </a>
-        <p class="destacat-peu"><strong>Formació que no et pots perdre</strong> — Curs de gestió empresarial per a autònoms.</p>
-      </div>
-    </div>
+    <a class="destacat-targeta reveal" href="https://www.vallsgenera.cat/formacio/curs?idFormacio=4696&cercador=1" target="_blank" rel="noopener" style="display:block;max-width:520px">
+      <img src="curs-gestio-empresarial-autonoms.jpg" alt="Curs Gestió empresarial per a autònoms (24 hores): facturació, IVA, IRPF. Del 15/09/2026 a l'1/10/2026, dimarts i dijous de 9 a 13 h. Inscripcions a vallsgenera.cat/formacio">
+    </a>
   </div>
 </section>
 
@@ -644,6 +630,15 @@ footer a:hover{color:#000;text-decoration:underline}
     <div class="capcalera-seccio reveal">
       <h2>Notícies</h2>
       <a class="tot" href="#">Totes les notícies</a>
+    </div>
+    <div class="noticia video-noticia reveal">
+      <div class="destacat-targeta">
+        <video controls preload="none" poster="35-anys-poster.jpg">
+          <source src="35-anys-vallsgenera.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="data">35è aniversari</div>
+      <h3>Reviu la jornada de teambuilding pels nostres 35 anys</h3>
     </div>
     <div class="noticies">
       <a class="noticia reveal" style="transition-delay:0s" href="#">
