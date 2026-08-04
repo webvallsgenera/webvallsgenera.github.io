@@ -134,23 +134,29 @@ section{padding:72px 0}
 .destacat-peu strong{color:var(--tinta);font-weight:700}
 @media (max-width:820px){.destacats-graella{grid-template-columns:1fr}}
 
-/* Icones de serveis, grans, repartides per la web i animades al llarg del scroll */
+/* Icones de serveis, grans, repartides per la web, entren de fora cap a dins en fer scroll */
 .icones-tira{background:var(--paper)}
 .icones-llista{margin-top:10px}
-.icona-fila{display:flex;align-items:center;gap:56px;padding:46px 0}
+.icona-fila{display:flex;align-items:center;gap:56px;padding:50px 0;text-decoration:none;color:inherit}
 .icona-fila:not(:last-child){border-bottom:1px solid var(--sorra)}
 .icona-fila:nth-child(even){flex-direction:row-reverse}
-.icona-visual{flex:0 0 auto;width:40%;display:flex;justify-content:center;will-change:transform}
-.icona-mida{position:relative;width:100%;max-width:320px}
+.icona-visual{flex:0 0 auto;width:44%;display:flex;justify-content:center}
+.icona-visual.reveal{transform:translateX(-140px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+.icona-fila:nth-child(even) .icona-visual.reveal{transform:translateX(140px)}
+.icona-visual.reveal.in{transform:none}
+.icona-mida{position:relative;width:100%;max-width:380px}
 .icona-mida img{display:block;width:100%;height:auto}
 .icona-mida .icona-capa{position:absolute;inset:0;width:100%;height:100%}
 .icona-text{flex:1}
 .icona-text h3{font-family:var(--display);font-weight:800;font-size:clamp(22px,2.6vw,32px);color:var(--tinta);letter-spacing:-.02em;margin-bottom:12px}
 .icona-text p{color:var(--gris-text);font-size:16.5px;max-width:40ch}
+.icona-fila:hover .icona-text h3{text-decoration:underline}
 @media (max-width:820px){
   .icona-fila,.icona-fila:nth-child(even){flex-direction:column;text-align:center;gap:22px;padding:30px 0}
   .icona-visual{width:100%}
-  .icona-mida{max-width:190px}
+  .icona-visual.reveal,.icona-fila:nth-child(even) .icona-visual.reveal{transform:translateY(30px)}
+  .icona-visual.reveal.in{transform:none}
+  .icona-mida{max-width:230px}
 }
 
 /* Micro-animacions per icona */
@@ -158,14 +164,15 @@ section{padding:72px 0}
 @keyframes gira-brujola{0%,100%{transform:rotate(-13deg)}50%{transform:rotate(13deg)}}
 @keyframes pica-martell{0%,100%{transform:rotate(0deg)}12%{transform:rotate(-16deg)}26%{transform:rotate(2deg)}100%{transform:rotate(0deg)}}
 @keyframes cauen-gotes{0%{transform:translateY(-12%);opacity:0}18%{opacity:1}72%{opacity:1}100%{transform:translateY(45%);opacity:0}}
+@keyframes fum-coet{0%,100%{opacity:.25;transform:scale(.94)}50%{opacity:1;transform:scale(1)}}
 .icona-capa-engranatge{-webkit-mask-image:radial-gradient(ellipse 23% 27% at 51% 51%,black 0%,black 78%,transparent 92%,transparent 100%);mask-image:radial-gradient(ellipse 23% 27% at 51% 51%,black 0%,black 78%,transparent 92%,transparent 100%);transform-origin:51% 51%;animation:gira-engranatge 4.5s ease-in-out infinite}
 .icona-base-engranatge{-webkit-mask-image:radial-gradient(ellipse 23% 27% at 51% 51%,transparent 0%,transparent 78%,black 92%,black 100%);mask-image:radial-gradient(ellipse 23% 27% at 51% 51%,transparent 0%,transparent 78%,black 92%,black 100%)}
 .icona-girar{animation:gira-brujola 6s ease-in-out infinite}
 .icona-capa-martell{transform-origin:92% 46%;animation:pica-martell 2.1s ease-in-out infinite}
 .icona-capa-gotes{animation:cauen-gotes 1.7s ease-in infinite}
+.icona-capa-fum{animation:fum-coet 2.4s ease-in-out infinite}
 @media (prefers-reduced-motion:reduce){
-  .icona-visual{transform:none!important}
-  .icona-capa-engranatge,.icona-girar,.icona-capa-martell,.icona-capa-gotes{animation:none!important}
+  .icona-capa-engranatge,.icona-girar,.icona-capa-martell,.icona-capa-gotes,.icona-capa-fum{animation:none!important}
 }
 
 /* Dades */
@@ -339,24 +346,24 @@ footer a:hover{color:#000;text-decoration:underline}
       </div>
     </div>
     <div class="icones-llista">
-      <div class="icona-fila">
-        <div class="icona-visual reveal" data-speed="-.18">
+      <a class="icona-fila" href="https://www.vallsgenera.cat/feina" target="_blank" rel="noopener">
+        <div class="icona-visual reveal">
           <div class="icona-mida"><img src="icona-encaixada.png" alt=""></div>
         </div>
         <div class="icona-text reveal" style="transition-delay:.08s">
           <h3>Troba feina</h3>
           <p>T'ajudem a trobar la feina que busques, amb borsa de treball i orientació personalitzada.</p>
         </div>
-      </div>
-      <div class="icona-fila">
-        <div class="icona-visual reveal" data-speed=".22">
+      </a>
+      <a class="icona-fila" href="https://www.vallsgenera.cat/feina/trobar-feina/programa-orienta" target="_blank" rel="noopener">
+        <div class="icona-visual reveal">
           <div class="icona-mida"><img class="icona-girar" src="icona-brujola.png" alt=""></div>
         </div>
         <div class="icona-text reveal" style="transition-delay:.08s">
           <h3>Orienta't professionalment</h3>
           <p>Servei d'orientació laboral individual per definir el teu itinerari.</p>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -448,8 +455,8 @@ footer a:hover{color:#000;text-decoration:underline}
       </div>
     </div>
     <div class="icones-llista">
-      <div class="icona-fila">
-        <div class="icona-visual reveal" data-speed="-.16">
+      <a class="icona-fila" href="https://www.vallsgenera.cat/formacio/formacio-professional-ocupacio" target="_blank" rel="noopener">
+        <div class="icona-visual reveal">
           <div class="icona-mida">
             <img src="icona-puzzle-base.png" alt="">
             <img class="icona-capa icona-capa-martell" src="icona-puzzle-martell.png" alt="" aria-hidden="true">
@@ -459,9 +466,9 @@ footer a:hover{color:#000;text-decoration:underline}
           <h3>Aprèn un ofici</h3>
           <p>Formació ocupacional per adquirir noves competències professionals.</p>
         </div>
-      </div>
-      <div class="icona-fila">
-        <div class="icona-visual reveal" data-speed=".2">
+      </a>
+      <a class="icona-fila" href="https://www.vallsgenera.cat/formacio/formacio-continua" target="_blank" rel="noopener">
+        <div class="icona-visual reveal">
           <div class="icona-mida">
             <img class="icona-base-engranatge" src="icona-bombeta.png" alt="">
             <img class="icona-capa icona-capa-engranatge" src="icona-bombeta.png" alt="" aria-hidden="true">
@@ -471,7 +478,7 @@ footer a:hover{color:#000;text-decoration:underline}
           <h3>Millora les teves competències</h3>
           <p>Cursos i tallers per créixer professionalment, sigui quin sigui el teu punt de partida.</p>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -555,8 +562,8 @@ footer a:hover{color:#000;text-decoration:underline}
       </div>
     </div>
     <div class="icones-llista">
-      <div class="icona-fila">
-        <div class="icona-visual reveal" data-speed="-.2">
+      <a class="icona-fila" href="https://www.vallsgenera.cat/empresa" target="_blank" rel="noopener">
+        <div class="icona-visual reveal">
           <div class="icona-mida">
             <img src="icona-regadora-base.png" alt="">
             <img class="icona-capa icona-capa-gotes" src="icona-regadora-gotes.png" alt="" aria-hidden="true">
@@ -566,16 +573,19 @@ footer a:hover{color:#000;text-decoration:underline}
           <h3>Fes créixer la teva empresa</h3>
           <p>Suport i assessorament per fer créixer el teu negoci.</p>
         </div>
-      </div>
-      <div class="icona-fila">
-        <div class="icona-visual reveal" data-speed-y=".22">
-          <div class="icona-mida"><img src="icona-coet.png" alt=""></div>
+      </a>
+      <a class="icona-fila" href="https://www.vallsgenera.cat/empresa/tens-una-idea-de-negoci" target="_blank" rel="noopener">
+        <div class="icona-visual reveal">
+          <div class="icona-mida">
+            <img src="icona-coet-base.png" alt="">
+            <img class="icona-capa icona-capa-fum" src="icona-coet-fum.png" alt="" aria-hidden="true">
+          </div>
         </div>
         <div class="icona-text reveal" style="transition-delay:.08s">
           <h3>Posa en marxa un negoci</h3>
           <p>T'acompanyem en la creació d'empreses, del pla al llançament.</p>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -752,30 +762,6 @@ footer a:hover{color:#000;text-decoration:underline}
     }
     window.addEventListener('scroll', actualitzaCapsalera, { passive: true });
     actualitzaCapsalera();
-  }
-
-  // Parallax suau a les icones de serveis: horitzontal, excepte el coet que puja/baixa (només escriptori)
-  var iconaItems = document.querySelectorAll('.icona-visual[data-speed], .icona-visual[data-speed-y]');
-  if (iconaItems.length && !reduceMotion && window.innerWidth > 820) {
-    function actualitzaIcones(){
-      var vh = window.innerHeight;
-      iconaItems.forEach(function(item){
-        var rect = item.getBoundingClientRect();
-        var centre = rect.top + rect.height / 2;
-        var speedY = item.getAttribute('data-speed-y');
-        if (speedY !== null) {
-          var offsetY = (vh / 2 - centre) * parseFloat(speedY);
-          item.style.transform = 'translateY(' + offsetY + 'px)';
-        } else {
-          var speed = parseFloat(item.getAttribute('data-speed')) || 0.2;
-          var offsetX = (vh / 2 - centre) * speed;
-          item.style.transform = 'translateX(' + offsetX + 'px)';
-        }
-      });
-    }
-    window.addEventListener('scroll', actualitzaIcones, { passive: true });
-    window.addEventListener('resize', actualitzaIcones);
-    actualitzaIcones();
   }
 
   // Aparició en scroll dels blocs .reveal (i comptadors de xifres)
