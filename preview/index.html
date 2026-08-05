@@ -82,14 +82,14 @@ nav.principal a:hover,nav.principal a:focus-visible{border-color:var(--rosa)}
 .hero h1 em{font-style:normal;color:var(--verd)}
 .hero .entradeta{margin:20px auto 0;font-size:19px;color:#EAF0F3;max-width:56ch}
 .portes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px}
-.porta{border:none;border-radius:var(--radi);padding:30px 26px 26px;text-decoration:none;display:flex;flex-direction:column;min-height:216px;box-shadow:0 14px 34px rgba(0,25,35,.12);transition:transform .2s ease,box-shadow .2s ease}
+.porta{position:relative;border:none;border-radius:var(--radi);padding:30px 26px 26px;text-decoration:none;display:flex;flex-direction:column;min-height:216px;box-shadow:0 14px 34px rgba(0,25,35,.12);transition:transform .2s ease,box-shadow .2s ease}
 .porta:hover{transform:translateY(-6px) rotate(-.3deg);box-shadow:0 20px 42px rgba(0,25,35,.18)}
 .porta:nth-child(1){background:var(--verd-clar)}
 .porta:nth-child(2){background:var(--rosa-clar)}
 .porta:nth-child(3){background:#E9EEF6}
-.porta h2{font-family:var(--display);font-size:27px;font-weight:700;letter-spacing:-.02em;line-height:1.15;color:var(--tinta)}
-.porta p{margin-top:10px;font-size:15.5px;color:var(--gris-text)}
-.porta .fletxa{margin-top:auto;padding-top:18px;font-weight:700;color:var(--tinta);font-size:15.5px}
+.porta h2{position:relative;z-index:2;font-family:var(--display);font-size:27px;font-weight:700;letter-spacing:-.02em;line-height:1.15;color:var(--tinta);max-width:75%}
+.porta p{position:relative;z-index:2;margin-top:10px;font-size:15.5px;color:var(--gris-text)}
+.porta .fletxa{position:relative;z-index:2;margin-top:auto;padding-top:18px;font-weight:700;color:var(--tinta);font-size:15.5px}
 
 /* Serveis */
 .serveis-graella{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
@@ -132,47 +132,22 @@ section{padding:72px 0}
 .destacat-peu{margin-top:14px;font-size:15px;color:var(--gris-text)}
 .destacat-peu strong{color:var(--tinta);font-weight:700}
 
-/* Icones de serveis, grans, repartides per la web, entren de fora cap a dins en fer scroll */
-.icones-tira{background:var(--paper)}
-.icones-llista{margin-top:10px}
-.icona-fila{display:flex;align-items:center;gap:56px;padding:50px 0;text-decoration:none;color:inherit}
-.icona-fila:not(:last-child){border-bottom:1px solid var(--sorra)}
-.icona-fila:nth-child(even){flex-direction:row-reverse}
-.icona-visual{flex:0 0 auto;width:44%;display:flex;justify-content:center}
-.icona-visual.reveal{transform:translateX(-260px);transition:opacity 1.3s cubic-bezier(.16,.7,.2,1),transform 1.3s cubic-bezier(.16,.7,.2,1)}
-.icona-fila:nth-child(even) .icona-visual.reveal{transform:translateX(260px)}
-.icona-visual.reveal.in,.icona-fila:nth-child(even) .icona-visual.reveal.in{transform:none}
-.icona-text .anar{display:inline-block;margin-top:16px;font-weight:700;color:var(--verd-fosc);font-size:15px}
-.icona-fila:hover .icona-text .anar{text-decoration:underline}
-.icona-mida{position:relative;width:100%;max-width:380px}
-.icona-mida img{display:block;width:100%;height:auto}
-.icona-mida .icona-capa{position:absolute;inset:0;width:100%;height:100%}
-.icona-text{flex:1}
-.icona-text h3{font-family:var(--display);font-weight:800;font-size:clamp(22px,2.6vw,32px);color:var(--tinta);letter-spacing:-.02em;margin-bottom:12px}
-.icona-text p{color:var(--gris-text);font-size:16.5px;max-width:40ch}
-.icona-fila:hover .icona-text h3{text-decoration:underline}
-@media (max-width:820px){
-  .icona-fila,.icona-fila:nth-child(even){flex-direction:column;text-align:center;gap:22px;padding:30px 0}
-  .icona-visual{width:100%}
-  .icona-visual.reveal,.icona-fila:nth-child(even) .icona-visual.reveal{transform:translateY(30px)}
-  .icona-visual.reveal.in{transform:none}
-  .icona-mida{max-width:230px}
-}
-
-/* Micro-animacions per icona */
+/* Icones animades a les portes del principi */
+.porta-icona,.porta-icona-capes{position:absolute;top:-16px;right:-12px;width:104px;z-index:1;filter:drop-shadow(0 10px 18px rgba(0,25,35,.18));pointer-events:none}
+.porta-icona{display:block;height:auto}
+.porta-icona-capes{position:absolute}
+.porta-icona-capes img{display:block;width:100%;height:auto}
+.icona-capa{position:absolute;inset:0;width:100%;height:100%}
 @keyframes gira-engranatge{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(10deg)}}
 @keyframes gira-brujola{0%,100%{transform:rotate(-13deg)}50%{transform:rotate(13deg)}}
-@keyframes pica-martell{0%,100%{transform:rotate(0deg)}12%{transform:rotate(-16deg)}26%{transform:rotate(2deg)}100%{transform:rotate(0deg)}}
-@keyframes cauen-gotes{0%{transform:translateY(-12%);opacity:0}18%{opacity:1}72%{opacity:1}100%{transform:translateY(45%);opacity:0}}
 @keyframes fum-coet{0%,100%{opacity:.25;transform:scale(.94)}50%{opacity:1;transform:scale(1)}}
 .icona-capa-engranatge{-webkit-mask-image:radial-gradient(ellipse 23% 27% at 51% 51%,black 0%,black 78%,transparent 92%,transparent 100%);mask-image:radial-gradient(ellipse 23% 27% at 51% 51%,black 0%,black 78%,transparent 92%,transparent 100%);transform-origin:51% 51%;animation:gira-engranatge 4.5s ease-in-out infinite}
 .icona-base-engranatge{-webkit-mask-image:radial-gradient(ellipse 23% 27% at 51% 51%,transparent 0%,transparent 78%,black 92%,black 100%);mask-image:radial-gradient(ellipse 23% 27% at 51% 51%,transparent 0%,transparent 78%,black 92%,black 100%)}
 .icona-girar{animation:gira-brujola 6s ease-in-out infinite}
-.icona-capa-martell{transform-origin:92% 46%;animation:pica-martell 2.1s ease-in-out infinite}
-.icona-capa-gotes{animation:cauen-gotes 1.7s ease-in infinite}
 .icona-capa-fum{animation:fum-coet 2.4s ease-in-out infinite}
+@media (max-width:820px){.porta-icona,.porta-icona-capes{width:80px;top:-10px;right:-8px}}
 @media (prefers-reduced-motion:reduce){
-  .icona-capa-engranatge,.icona-girar,.icona-capa-martell,.icona-capa-gotes,.icona-capa-fum{animation:none!important}
+  .icona-capa-engranatge,.icona-girar,.icona-capa-fum{animation:none!important}
 }
 
 /* Dades */
@@ -207,10 +182,17 @@ section{padding:72px 0}
 .xifra .detall{margin-top:8px;font-size:13.5px;color:var(--gris-text);line-height:1.5}
 
 /* Notícies */
-.video-noticia{max-width:420px;margin-bottom:36px}
-.noticies{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.noticies-destacades{display:flex;gap:48px;align-items:stretch}
+.video-noticia{flex:0 0 auto;width:420px}
+.noticies-llista{flex:1;min-width:0;display:flex;flex-direction:column}
+.noticia-fila{display:block;text-decoration:none;padding:16px 0;border-bottom:1px solid var(--sorra)}
+.noticia-fila:first-child{padding-top:0}
+.noticia-fila:last-child{border-bottom:none}
+.noticia-fila h3{font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:-.02em;line-height:1.3;margin-top:6px;color:var(--tinta)}
+.noticia-fila:hover h3{color:var(--verd)}
+@media (max-width:820px){.noticies-destacades{flex-direction:column;gap:28px}.video-noticia{width:100%}}
 .noticia{text-decoration:none;display:block}
-.noticia .data{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;color:var(--rosa);text-transform:uppercase}
+.noticia .data,.noticia-fila .data{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;color:var(--rosa);text-transform:uppercase}
 .noticia h3{font-family:var(--display);font-size:20px;font-weight:600;letter-spacing:-.02em;line-height:1.25;margin-top:10px}
 .noticia:hover h3{color:var(--verd)}
 
@@ -238,7 +220,6 @@ footer a:hover{color:#000;text-decoration:underline}
 
 @media (max-width:1000px){
   .serveis-graella{grid-template-columns:repeat(2,1fr)}
-  .noticies{grid-template-columns:repeat(2,1fr)}
   .xifres{grid-template-columns:repeat(2,1fr);gap:30px 0}
 }
 @media (max-width:820px){
@@ -260,7 +241,7 @@ footer a:hover{color:#000;text-decoration:underline}
   .xifra{padding:22px}
 }
 @media (max-width:560px){
-  .serveis-graella,.noticies{grid-template-columns:1fr}
+  .serveis-graella{grid-template-columns:1fr}
   .peu-graella{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
@@ -320,16 +301,25 @@ footer a:hover{color:#000;text-decoration:underline}
   <div class="wrap">
     <div class="portes">
       <a class="porta reveal" style="transition-delay:0s" href="ofertes-feina.html">
+        <img class="porta-icona icona-girar" src="icona-brujola.png" alt="">
         <h2>T'ajudem a trobar feina</h2>
         <p>Ofertes obertes, borsa de treball i orientació laboral personalitzada.</p>
         <div class="fletxa">Veure ofertes de feina →</div>
       </a>
       <a class="porta reveal" style="transition-delay:.08s" href="#formacio">
+        <div class="porta-icona-capes">
+          <img class="icona-base-engranatge" src="icona-bombeta.png" alt="">
+          <img class="icona-capa icona-capa-engranatge" src="icona-bombeta.png" alt="" aria-hidden="true">
+        </div>
         <h2>Forma't i acredita't</h2>
         <p>Cursos gratuïts amb certificat i acreditació de l'experiència que ja tens.</p>
         <div class="fletxa">Cercar formació →</div>
       </a>
       <a class="porta reveal" style="transition-delay:.16s" href="#empresa">
+        <div class="porta-icona-capes">
+          <img src="icona-coet-base.png" alt="">
+          <img class="icona-capa icona-capa-fum" src="icona-coet-fum.png" alt="" aria-hidden="true">
+        </div>
         <h2>Serveis a l'empresa</h2>
         <p>Selecció de personal, assessorament per emprendre i suport al comerç del centre.</p>
         <div class="fletxa">Veure els serveis →</div>
@@ -338,38 +328,6 @@ footer a:hover{color:#000;text-decoration:underline}
   </div>
 </div>
 
-<section class="icones-tira">
-  <div class="wrap">
-    <div class="capcalera-seccio reveal">
-      <div>
-        <div class="eyebrow">Feina</div>
-        <h2>El primer pas</h2>
-      </div>
-    </div>
-    <div class="icones-llista">
-      <a class="icona-fila" href="https://www.vallsgenera.cat/feina" target="_blank" rel="noopener">
-        <div class="icona-visual reveal">
-          <div class="icona-mida"><img src="icona-encaixada.png" alt=""></div>
-        </div>
-        <div class="icona-text reveal" style="transition-delay:.08s">
-          <h3>Troba feina</h3>
-          <p>T'ajudem a trobar la feina que busques, amb borsa de treball i orientació personalitzada.</p>
-          <span class="anar">Veure ofertes de feina →</span>
-        </div>
-      </a>
-      <a class="icona-fila" href="https://www.vallsgenera.cat/feina/trobar-feina/programa-orienta" target="_blank" rel="noopener">
-        <div class="icona-visual reveal">
-          <div class="icona-mida"><img class="icona-girar" src="icona-brujola.png" alt=""></div>
-        </div>
-        <div class="icona-text reveal" style="transition-delay:.08s">
-          <h3>Orienta't professionalment</h3>
-          <p>Servei d'orientació laboral individual per definir el teu itinerari.</p>
-          <span class="anar">Conèixer el programa →</span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
 
 <section class="destacat">
   <div class="wrap">
@@ -436,44 +394,6 @@ footer a:hover{color:#000;text-decoration:underline}
   </div>
 </div>
 
-<section class="icones-tira">
-  <div class="wrap">
-    <div class="capcalera-seccio reveal">
-      <div>
-        <div class="eyebrow">Formació</div>
-        <h2>Segueix creixent</h2>
-      </div>
-    </div>
-    <div class="icones-llista">
-      <a class="icona-fila" href="https://www.vallsgenera.cat/formacio/formacio-professional-ocupacio" target="_blank" rel="noopener">
-        <div class="icona-visual reveal">
-          <div class="icona-mida">
-            <img src="icona-puzzle-base.png" alt="">
-            <img class="icona-capa icona-capa-martell" src="icona-puzzle-martell.png" alt="" aria-hidden="true">
-          </div>
-        </div>
-        <div class="icona-text reveal" style="transition-delay:.08s">
-          <h3>Aprèn un ofici</h3>
-          <p>Formació ocupacional per adquirir noves competències professionals.</p>
-          <span class="anar">Veure formació ocupacional →</span>
-        </div>
-      </a>
-      <a class="icona-fila" href="https://www.vallsgenera.cat/formacio/formacio-continua" target="_blank" rel="noopener">
-        <div class="icona-visual reveal">
-          <div class="icona-mida">
-            <img class="icona-base-engranatge" src="icona-bombeta.png" alt="">
-            <img class="icona-capa icona-capa-engranatge" src="icona-bombeta.png" alt="" aria-hidden="true">
-          </div>
-        </div>
-        <div class="icona-text reveal" style="transition-delay:.08s">
-          <h3>Millora les teves competències</h3>
-          <p>Cursos i tallers per créixer professionalment, sigui quin sigui el teu punt de partida.</p>
-          <span class="anar">Veure formació contínua →</span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
 
 <section id="feina">
   <div class="wrap">
@@ -545,44 +465,6 @@ footer a:hover{color:#000;text-decoration:underline}
   </div>
 </section>
 
-<section class="icones-tira">
-  <div class="wrap">
-    <div class="capcalera-seccio reveal">
-      <div>
-        <div class="eyebrow">Empresa</div>
-        <h2>Fes-ho realitat</h2>
-      </div>
-    </div>
-    <div class="icones-llista">
-      <a class="icona-fila" href="https://www.vallsgenera.cat/empresa" target="_blank" rel="noopener">
-        <div class="icona-visual reveal">
-          <div class="icona-mida">
-            <img src="icona-regadora-base.png" alt="">
-            <img class="icona-capa icona-capa-gotes" src="icona-regadora-gotes.png" alt="" aria-hidden="true">
-          </div>
-        </div>
-        <div class="icona-text reveal" style="transition-delay:.08s">
-          <h3>Fes créixer la teva empresa</h3>
-          <p>Suport i assessorament per fer créixer el teu negoci.</p>
-          <span class="anar">Veure serveis a l'empresa →</span>
-        </div>
-      </a>
-      <a class="icona-fila" href="https://www.vallsgenera.cat/empresa/tens-una-idea-de-negoci" target="_blank" rel="noopener">
-        <div class="icona-visual reveal">
-          <div class="icona-mida">
-            <img src="icona-coet-base.png" alt="">
-            <img class="icona-capa icona-capa-fum" src="icona-coet-fum.png" alt="" aria-hidden="true">
-          </div>
-        </div>
-        <div class="icona-text reveal" style="transition-delay:.08s">
-          <h3>Posa en marxa un negoci</h3>
-          <p>T'acompanyem en la creació d'empreses, del pla al llançament.</p>
-          <span class="anar">Veure com t'ajudem →</span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
 
 <section class="dades" id="dades">
   <div class="wrap">
@@ -625,32 +507,34 @@ footer a:hover{color:#000;text-decoration:underline}
       <h2>Notícies</h2>
       <a class="tot" href="#">Totes les notícies</a>
     </div>
-    <div class="noticia video-noticia reveal">
-      <div class="destacat-targeta">
-        <video controls preload="none" poster="35-anys-poster.jpg">
-          <source src="35-anys-vallsgenera.mp4" type="video/mp4">
-        </video>
+    <div class="noticies-destacades">
+      <div class="noticia video-noticia reveal">
+        <div class="destacat-targeta">
+          <video controls preload="none" poster="35-anys-poster.jpg">
+            <source src="35-anys-vallsgenera.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="data">35è aniversari</div>
+        <h3>Reviu la jornada de teambuilding pels nostres 35 anys</h3>
       </div>
-      <div class="data">35è aniversari</div>
-      <h3>Reviu la jornada de teambuilding pels nostres 35 anys</h3>
-    </div>
-    <div class="noticies">
-      <a class="noticia reveal" style="transition-delay:0s" href="#">
-        <div class="data">25 maig 2026</div>
-        <h3>Vallsgenera atorga el VI Premi al Compromís Social per l'Ocupació a l'empresa DESA</h3>
-      </a>
-      <a class="noticia reveal" style="transition-delay:.07s" href="#">
-        <div class="data">13 maig 2026</div>
-        <h3>Premiem els millors projectes de l'itinerari «Engeguem el nostre projecte cooperatiu»</h3>
-      </a>
-      <a class="noticia reveal" style="transition-delay:.14s" href="#">
-        <div class="data">6 maig 2026</div>
-        <h3>Es reuneix el Pacte Camp de Valls per presentar el pla estratègic i les accions del 2026</h3>
-      </a>
-      <a class="noticia reveal" style="transition-delay:.21s" href="#">
-        <div class="data">4 maig 2026</div>
-        <h3>Vallsgenera acull una jornada d'ACCIÓ sobre sostenibilitat i competitivitat empresarial</h3>
-      </a>
+      <div class="noticies-llista">
+        <a class="noticia-fila reveal" style="transition-delay:0s" href="#">
+          <div class="data">25 maig 2026</div>
+          <h3>Vallsgenera atorga el VI Premi al Compromís Social per l'Ocupació a l'empresa DESA</h3>
+        </a>
+        <a class="noticia-fila reveal" style="transition-delay:.07s" href="#">
+          <div class="data">13 maig 2026</div>
+          <h3>Premiem els millors projectes de l'itinerari «Engeguem el nostre projecte cooperatiu»</h3>
+        </a>
+        <a class="noticia-fila reveal" style="transition-delay:.14s" href="#">
+          <div class="data">6 maig 2026</div>
+          <h3>Es reuneix el Pacte Camp de Valls per presentar el pla estratègic i les accions del 2026</h3>
+        </a>
+        <a class="noticia-fila reveal" style="transition-delay:.21s" href="#">
+          <div class="data">4 maig 2026</div>
+          <h3>Vallsgenera acull una jornada d'ACCIÓ sobre sostenibilitat i competitivitat empresarial</h3>
+        </a>
+      </div>
     </div>
   </div>
 </section>
