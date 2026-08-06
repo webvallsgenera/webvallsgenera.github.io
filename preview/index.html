@@ -48,18 +48,27 @@ body.home header.top{background:transparent;border-bottom-color:transparent}
 body.home header.top .wrap{height:96px}
 body.home .hero{margin-top:-96px}
 body.home header.top .marca-logo img{height:72px}
-body.home header.top nav.principal a{color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.5)}
-body.home header.top nav.principal a:hover,body.home header.top nav.principal a:focus-visible{border-color:#fff}
+body.home header.top nav.principal a,body.home header.top nav.principal .nav-toggle{color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+body.home header.top nav.principal a:hover,body.home header.top nav.principal a:focus-visible,body.home header.top nav.principal .nav-toggle:hover,body.home header.top nav.principal .nav-item.obert .nav-toggle{border-color:#fff}
 body.home header.top .menu-btn{background:rgba(255,255,255,.18);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 body.home header.top.es-opac{background:var(--blanc);border-bottom-color:var(--sorra)}
 body.home header.top.es-opac .marca-logo img{height:52px}
-body.home header.top.es-opac nav.principal a{color:var(--tinta);text-shadow:none}
-body.home header.top.es-opac nav.principal a:hover,body.home header.top.es-opac nav.principal a:focus-visible{border-color:var(--rosa)}
+body.home header.top.es-opac nav.principal a,body.home header.top.es-opac nav.principal .nav-toggle{color:var(--tinta);text-shadow:none}
+body.home header.top.es-opac nav.principal a:hover,body.home header.top.es-opac nav.principal a:focus-visible,body.home header.top.es-opac nav.principal .nav-toggle:hover,body.home header.top.es-opac nav.principal .nav-item.obert .nav-toggle{border-color:var(--rosa)}
 body.home header.top.es-opac .menu-btn{background:var(--tinta);backdrop-filter:none;-webkit-backdrop-filter:none}
 .aniversari{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--rosa);border:1px solid var(--rosa);border-radius:100px;padding:4px 9px;line-height:1}
-nav.principal{margin-left:auto;display:flex;gap:28px;font-weight:600;font-size:15.5px}
+nav.principal{margin-left:auto;display:flex;align-items:center;gap:28px;font-weight:600;font-size:15.5px}
 nav.principal a{text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
 nav.principal a:hover,nav.principal a:focus-visible{border-color:var(--rosa)}
+.nav-item{position:relative}
+.nav-toggle{background:none;border:0;font:inherit;font-weight:600;font-size:15.5px;color:inherit;cursor:pointer;padding:6px 0;border-bottom:2px solid transparent;display:flex;align-items:center;gap:6px}
+.nav-toggle:hover,.nav-toggle:focus-visible{border-color:var(--rosa)}
+.nav-toggle::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-top:-4px;transition:transform .2s ease}
+.nav-item.obert .nav-toggle::after{transform:rotate(-135deg);margin-top:2px}
+.nav-dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:270px;max-width:320px;max-height:70vh;overflow-y:auto;background:#fff;border-radius:14px;box-shadow:0 18px 40px rgba(0,25,35,.18);padding:10px;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .18s ease,transform .18s ease;z-index:60}
+.nav-item.obert .nav-dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.nav-dropdown a{display:block;padding:10px 14px;border-radius:8px;color:var(--tinta);text-decoration:none;font-weight:600;font-size:14.5px;border-bottom:0}
+.nav-dropdown a:hover{background:var(--paper);color:var(--verd-fosc)}
 .menu-btn{display:none;margin-left:auto;background:var(--tinta);color:#fff;border:0;padding:11px 17px;border-radius:8px;font-family:var(--cos);font-weight:600;font-size:15px}
 
 /* Hero */
@@ -270,10 +279,68 @@ footer a:hover{color:#000;text-decoration:underline}
       <img src="vallsgenera-35-anys-horitzontal.png" alt="Vallsgenera — Institut Municipal de Desenvolupament Local · 35 anys, Creant oportunitats">
     </a>
     <nav class="principal" aria-label="Navegació principal">
-      <a href="#feina">Feina</a>
-      <a href="#formacio">Formació</a>
-      <a href="#empresa">Empresa</a>
-      <a href="#dades">Qui som</a>
+      <div class="nav-item">
+        <button class="nav-toggle" aria-expanded="false">Feina</button>
+        <div class="nav-dropdown">
+          <a href="ofertes-feina.html">Ofertes de feina</a>
+          <a href="#">Oferta pública Valls</a>
+          <a href="#">Oferta pública Vallsgenera</a>
+          <a href="#">Borsa de treball</a>
+          <a href="#">Borsa de formadors</a>
+          <a href="#">Pràctiques en empreses</a>
+          <a href="#">Programes d'orientació i inserció laboral</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-toggle" aria-expanded="false">Formació</button>
+        <div class="nav-dropdown">
+          <a href="#">Formació professional per a l'ocupació</a>
+          <a href="#">Formació contínua</a>
+          <a href="#">Joves PFI</a>
+          <a href="#">Formació en línia de Vallsgenera</a>
+          <a href="#">Formació en línia d'Aula Mentor</a>
+          <a href="#">Unitat d'Escolarització Compartida</a>
+          <a href="#">ACTIC</a>
+          <a href="#">Cursos de català</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-toggle" aria-expanded="false">Empresa</button>
+        <div class="nav-dropdown">
+          <a href="empresa-idea-negoci.html">Tens una idea de negoci?</a>
+          <a href="#">Viver d'empreses</a>
+          <a href="#">Solars, naus i locals</a>
+          <a href="#">Xarxa VallsEmprèn</a>
+          <a href="#">Serveis per a l'empresa</a>
+          <a href="#">Troba personal</a>
+          <a href="#">Ajuts i subvencions</a>
+          <a href="#">Relleu empresarial</a>
+          <a href="#">Empreses d'economia social i solidària</a>
+          <a href="#">Pràctiques en empreses</a>
+          <a href="#">Formació contínua</a>
+          <a href="#">Cercador d'empreses i comerços</a>
+          <a href="#">Programes de contractació subvencionada</a>
+          <a href="#">Consolida't</a>
+          <a href="#">Viver Comercial</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button class="nav-toggle" aria-expanded="false">Vallsgenera</button>
+        <div class="nav-dropdown">
+          <a href="#dades">Qui som?</a>
+          <a href="#">Seu electrònica</a>
+          <a href="#">Perfil del contractant</a>
+          <a href="#">Cessió d'espais</a>
+          <a href="#">Notícies</a>
+          <a href="#">Pacte Camp de Valls</a>
+          <a href="#">Col·laboratori de Valls</a>
+          <a href="#">Demana hora serveis Vallsgenera</a>
+          <a href="#">Jornades</a>
+          <a href="#">Demana hora a orientació laboral</a>
+          <a href="#">Demana hora, acredita't</a>
+          <a href="#">Demana hora a suport digital a la ciutadania</a>
+        </div>
+      </div>
       <a href="#contacte">Contacte</a>
     </nav>
     <button class="menu-btn">Menú</button>
@@ -639,6 +706,33 @@ footer a:hover{color:#000;text-decoration:underline}
       if (progres < 1) window.requestAnimationFrame(pas);
     }
     window.requestAnimationFrame(pas);
+  }
+
+  // Menú desplegable de la navegació principal
+  var navItems = document.querySelectorAll('.nav-item');
+  if (navItems.length) {
+    function tancaTots(){
+      navItems.forEach(function(i){
+        i.classList.remove('obert');
+        i.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+      });
+    }
+    navItems.forEach(function(item){
+      var btn = item.querySelector('.nav-toggle');
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        var jaObert = item.classList.contains('obert');
+        tancaTots();
+        if (!jaObert) {
+          item.classList.add('obert');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+    document.addEventListener('click', tancaTots);
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') tancaTots();
+    });
   }
 
   // Capçalera transparent sobre el hero: passa a sòlida en fer scroll

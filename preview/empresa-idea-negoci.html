@@ -3,10 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ofertes de feina · Vallsgenera</title>
-<meta name="description" content="Ofertes de feina obertes a Valls i l'Alt Camp gestionades per Vallsgenera.">
-<!-- PROTOTIP. Estructura i textos de servei reals. Les ofertes llistades son EXEMPLES
-     de maquetacio: cal substituir-les per les ofertes reals del gestor. -->
+<title>Tens una idea de negoci? · Vallsgenera</title>
+<meta name="description" content="Suport de Vallsgenera per posar en marxa el teu projecte empresarial: assessorament, pla d'empresa i acompanyament fins a la posada en marxa.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -36,15 +34,11 @@ a{color:inherit}
 
 header.top{background:var(--blanc);border-bottom:1px solid var(--sorra);position:sticky;top:0;z-index:50}
 header.top .wrap{display:flex;align-items:center;gap:28px;height:78px}
-.marca{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:27px;letter-spacing:-.025em}
 .marca-logo{display:flex;align-items:center}
 .marca-logo img{display:block;height:52px;width:auto}
-.marca .genera{color:var(--verd)}
-.aniversari{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--rosa);border:1px solid var(--rosa);border-radius:100px;padding:4px 9px;line-height:1}
 nav.principal{margin-left:auto;display:flex;align-items:center;gap:28px;font-weight:600;font-size:15.5px}
 nav.principal a{text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
 nav.principal a:hover{border-color:var(--rosa)}
-nav.principal a.actiu{border-color:var(--verd);color:var(--verd)}
 .nav-item{position:relative}
 .nav-toggle{background:none;border:0;font:inherit;font-weight:600;font-size:15.5px;color:inherit;cursor:pointer;padding:6px 0;border-bottom:2px solid transparent;display:flex;align-items:center;gap:6px}
 .nav-toggle:hover,.nav-toggle:focus-visible{border-color:var(--rosa)}
@@ -54,62 +48,42 @@ nav.principal a.actiu{border-color:var(--verd);color:var(--verd)}
 .nav-item.obert .nav-dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
 .nav-dropdown a{display:block;padding:10px 14px;border-radius:8px;color:var(--tinta);text-decoration:none;font-weight:600;font-size:14.5px;border-bottom:0}
 .nav-dropdown a:hover{background:var(--paper);color:var(--verd-fosc)}
+.nav-dropdown a.actiu{background:var(--verd-clar);color:var(--verd-fosc)}
 .menu-btn{display:none;margin-left:auto;background:var(--tinta);color:#fff;border:0;padding:11px 17px;border-radius:8px;font-family:var(--cos);font-weight:600;font-size:15px}
 
-/* Molla de pa */
 .molla{padding:18px 0 0;font-size:14px;color:var(--gris-text)}
 .molla a{text-decoration:none}
 .molla a:hover{text-decoration:underline}
 
-/* Capçalera de pàgina */
-.titol-pagina{padding:22px 0 30px}
-.titol-pagina h1{font-family:var(--display);font-size:clamp(34px,5.2vw,58px);font-weight:800;letter-spacing:-.03em;line-height:1.03}
-.titol-pagina .comptador{margin-top:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.punt{width:9px;height:9px;border-radius:50%;background:var(--rosa);display:inline-block}
-.titol-pagina .comptador b{font-size:18px}
-.titol-pagina .comptador span{font-family:var(--mono);font-size:11.5px;color:var(--gris-text);letter-spacing:.05em}
+.titol-pagina{padding:22px 0 6px}
+.titol-pagina h1{font-family:var(--display);font-size:clamp(32px,4.6vw,50px);font-weight:800;letter-spacing:-.03em;line-height:1.05}
 
-/* Filtres */
-.filtres{background:var(--blanc);border:1px solid var(--sorra);border-radius:var(--radi);padding:20px 22px;display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:14px;align-items:end}
-.camp label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
-.camp input,.camp select{width:100%;padding:12px 14px;border-radius:9px;border:1px solid var(--sorra);background:var(--paper);font-family:var(--cos);font-size:15.5px;color:var(--tinta)}
-.boto{background:var(--tinta);color:#fff;border:0;font-family:var(--cos);font-weight:600;font-size:15.5px;padding:13px 24px;border-radius:100px;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
-.boto:hover{background:var(--verd)}
-.boto.rosa{background:var(--rosa)}
-.boto.rosa:hover{background:var(--tinta)}
-.boto.buit{background:transparent;color:var(--tinta);border:1.5px solid var(--tinta)}
-.boto.buit:hover{background:var(--tinta);color:#fff}
+.contingut{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:34px 0 20px}
+.contingut p.intro{font-size:18px;color:var(--gris-text);margin-bottom:22px}
+.llista-check{list-style:none;margin:14px 0 0}
+.llista-check li{position:relative;padding-left:30px;margin-bottom:10px}
+.llista-check li::before{content:"✓";position:absolute;left:0;top:0;color:var(--verd-fosc);font-weight:700}
+.llista-check.sub{margin-left:14px;margin-top:8px}
+.llista-check.sub li::before{content:"○";color:var(--rosa);font-size:10px;top:5px}
+.visual-idea{background:var(--verd-clar);border-radius:var(--radi);padding:50px 30px;display:flex;justify-content:center;align-items:center}
+.visual-idea img{width:100%;max-width:220px;height:auto}
 
-/* Llista d'ofertes */
-.llista{margin-top:26px;display:grid;gap:12px}
-.oferta{background:var(--blanc);border:1px solid var(--sorra);border-radius:12px;padding:22px 24px;display:grid;grid-template-columns:1fr auto;gap:16px 26px;align-items:center;text-decoration:none;transition:border-color .16s,background .16s,transform .2s ease,box-shadow .2s ease}
-.oferta:hover{border-color:var(--verd);background:var(--verd-clar);transform:translateY(-4px);box-shadow:0 14px 28px rgba(0,61,83,.1)}
-.oferta h2{font-size:20px;font-weight:700;letter-spacing:-.015em;line-height:1.25}
-.oferta .meta{margin-top:9px;font-size:14.5px;color:var(--gris-text);display:flex;gap:8px 18px;flex-wrap:wrap}
-.oferta .ref{font-family:var(--mono);font-size:11px;color:var(--gris-text);letter-spacing:.05em;margin-bottom:8px}
-.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;background:var(--rosa-clar);color:var(--rosa);padding:6px 12px;border-radius:100px;white-space:nowrap}
-.tag.verd{background:var(--verd-clar);color:var(--verd)}
-.accions{display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.emprencat{background:var(--blanc);border:1px solid var(--sorra);border-radius:var(--radi);padding:30px 32px;margin:30px 0}
+.emprencat h2{font-family:var(--display);font-size:23px;font-weight:700;letter-spacing:-.02em;margin-bottom:10px}
+.emprencat p{color:var(--gris-text);margin-bottom:14px;max-width:70ch}
+.emprencat a{color:var(--verd-fosc);font-weight:700;text-decoration:none;display:block;margin-top:6px}
+.emprencat a:hover{text-decoration:underline}
 
-/* Buit */
-.buit{background:var(--blanc);border:1px dashed var(--sorra);border-radius:var(--radi);padding:46px 30px;text-align:center;margin-top:26px}
-.buit h2{font-family:var(--display);font-size:25px;font-weight:600;letter-spacing:-.02em}
-.buit p{margin:12px auto 0;color:var(--gris-text);max-width:52ch}
-.buit .boto{margin-top:22px}
+.acordio{border-top:1px solid var(--sorra);margin-top:10px}
+.acordio details{padding:18px 0;border-bottom:1px solid var(--sorra)}
+.acordio summary{font-weight:700;font-size:16.5px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.acordio summary::-webkit-details-marker{display:none}
+.acordio summary::after{content:"+";font-family:var(--mono);color:var(--rosa);font-size:20px}
+.acordio details[open] summary::after{content:"–"}
+.acordio details p{margin-top:10px;color:var(--gris-text);max-width:70ch}
 
-/* Caixa lateral / ajuda */
-.dues{display:grid;grid-template-columns:1fr 340px;gap:34px;align-items:start;padding-bottom:76px}
-.ajuda{background:var(--blanc);border:1px solid var(--sorra);border-radius:var(--radi);padding:26px;position:sticky;top:100px}
-.ajuda h2{font-family:var(--display);font-size:22px;font-weight:600;letter-spacing:-.02em}
-.ajuda p{margin-top:12px;font-size:15px;color:var(--gris-text);line-height:1.55}
-.ajuda .boto{margin-top:18px;width:100%}
-.ajuda hr{border:0;border-top:1px solid var(--sorra);margin:24px 0}
-.ajuda details{font-size:15px}
-.ajuda summary{font-weight:700;cursor:pointer;padding:6px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px}
-.ajuda summary::-webkit-details-marker{display:none}
-.ajuda summary::after{content:"+";font-family:var(--mono);color:var(--rosa);font-size:19px}
-.ajuda details[open] summary::after{content:"–"}
-.ajuda details p{margin-top:8px;font-size:14.5px}
+.credit-suport{margin:40px 0 60px;font-size:14px;color:var(--gris-text)}
+.credit-suport strong{display:block;color:var(--tinta);margin-bottom:4px}
 
 footer{background:var(--verd);color:var(--tinta);padding:48px 0 28px;font-size:15px}
 .peu-baix{display:flex;gap:20px;flex-wrap:wrap;color:#215065;font-size:13.5px}
@@ -118,17 +92,11 @@ footer a{color:var(--tinta);text-decoration:none}
 footer a:hover{color:#000;text-decoration:underline}
 .contacte-peu{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:26px;font-weight:600}
 
-@media (max-width:960px){
-  .dues{grid-template-columns:1fr}
-  .ajuda{position:static}
-  .filtres{grid-template-columns:1fr 1fr}
-}
-@media (max-width:700px){
+@media (max-width:820px){
   nav.principal{display:none}
   .menu-btn{display:block}
-  .filtres{grid-template-columns:1fr}
-  .oferta{grid-template-columns:1fr}
-  .accions{align-items:stretch}
+  .contingut{grid-template-columns:1fr;gap:26px}
+  .visual-idea{order:-1}
 }
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.2,.7,.3,1),transform .6s cubic-bezier(.2,.7,.3,1)}
 .reveal.in{opacity:1;transform:none}
@@ -161,7 +129,7 @@ footer a:hover{color:#000;text-decoration:underline}
       <div class="nav-item">
         <button class="nav-toggle" aria-expanded="false">Feina</button>
         <div class="nav-dropdown">
-          <a class="actiu" href="ofertes-feina.html">Ofertes de feina</a>
+          <a href="ofertes-feina.html">Ofertes de feina</a>
           <a href="#">Oferta pública Valls</a>
           <a href="#">Oferta pública Vallsgenera</a>
           <a href="#">Borsa de treball</a>
@@ -186,7 +154,7 @@ footer a:hover{color:#000;text-decoration:underline}
       <div class="nav-item">
         <button class="nav-toggle" aria-expanded="false">Empresa</button>
         <div class="nav-dropdown">
-          <a href="empresa-idea-negoci.html">Tens una idea de negoci?</a>
+          <a class="actiu" href="empresa-idea-negoci.html">Tens una idea de negoci?</a>
           <a href="#">Viver d'empreses</a>
           <a href="#">Solars, naus i locals</a>
           <a href="#">Xarxa VallsEmprèn</a>
@@ -229,118 +197,56 @@ footer a:hover{color:#000;text-decoration:underline}
 <main id="principal">
 <div class="wrap">
   <nav class="molla" aria-label="Ets aquí">
-    <a href="index.html">Inici</a> / <a href="#">Feina</a> / <span>Ofertes de feina</span>
+    <a href="index.html">Inici</a> / <a href="#">Empresa</a> / <span>Tens una idea de negoci?</span>
   </nav>
 
   <div class="titol-pagina reveal">
-    <h1>Aquí trobaràs feina</h1>
-    <div class="comptador">
-      <span class="punt"></span>
-      <b>12 ofertes obertes ara mateix</b>
-      <span>Actualitzat avui a les 8.00 h</span>
+    <h1>Tens una idea de negoci?</h1>
+  </div>
+
+  <div class="contingut">
+    <div class="reveal">
+      <p class="intro">A Vallsgenera et donem suport en totes les fases del projecte empresarial, des de la definició de la idea fins a la posada en marxa.</p>
+      <ul class="llista-check">
+        <li>T'assessorem en:
+          <ul class="llista-check sub">
+            <li>Formes jurídiques</li>
+            <li>Fiscalitat</li>
+            <li>Àmbit laboral</li>
+            <li>Tràmits administratius</li>
+            <li>Fonts de finançament</li>
+            <li>Ajuts i subvencions</li>
+          </ul>
+        </li>
+        <li>T'oferim assistència tècnica personalitzada en l'elaboració del Pla d'empresa.</li>
+        <li>Et certifiquem la viabilitat del teu projecte empresarial.</li>
+        <li>T'acompanyem en la posada en marxa de l'empresa.</li>
+      </ul>
+    </div>
+    <div class="visual-idea reveal" style="transition-delay:.1s">
+      <img src="icona-coet-base.png" alt="">
     </div>
   </div>
 
-  <div class="dues">
-    <div>
-      <form class="filtres" onsubmit="return false">
-        <div class="camp">
-          <label for="q">Què busques</label>
-          <input id="q" type="search" placeholder="Ocupació, ofici o paraula clau">
-        </div>
-        <div class="camp">
-          <label for="sector">Sector</label>
-          <select id="sector">
-            <option>Tots els sectors</option>
-            <option>Indústria</option>
-            <option>Comerç i hostaleria</option>
-            <option>Atenció a les persones</option>
-            <option>Administració i gestió</option>
-            <option>Construcció</option>
-          </select>
-        </div>
-        <div class="camp">
-          <label for="jornada">Jornada</label>
-          <select id="jornada">
-            <option>Qualsevol</option>
-            <option>Completa</option>
-            <option>Parcial</option>
-            <option>Torns</option>
-          </select>
-        </div>
-        <button class="boto" type="submit">Cercar</button>
-      </form>
-
-      <div class="llista">
-
-        <a class="oferta reveal" style="transition-delay:0s" href="mailto:vallsgenera@valls.cat?subject=Inscripcio%20oferta%20Ref.%202026-0184%20-%20Operari%2Faria%20de%20produccio">
-          <div>
-            <div class="ref">Ref. 2026-0184 · Publicada el 24.07.2026</div>
-            <h2>Operari/ària de producció</h2>
-            <div class="meta"><span>Valls</span><span>Jornada completa</span><span>Torn de matí</span><span>Indústria</span></div>
-          </div>
-          <div class="accions">
-            <span class="tag">Tanca en 4 dies</span>
-            <span class="boto rosa">Inscriu-t'hi</span>
-          </div>
-        </a>
-
-        <a class="oferta reveal" style="transition-delay:.07s" href="mailto:vallsgenera@valls.cat?subject=Inscripcio%20oferta%20Ref.%202026-0183%20-%20Auxiliar%20d%27atencio%20a%20les%20persones">
-          <div>
-            <div class="ref">Ref. 2026-0183 · Publicada el 23.07.2026</div>
-            <h2>Auxiliar d'atenció a les persones</h2>
-            <div class="meta"><span>Alt Camp</span><span>Jornada parcial</span><span>Atenció a les persones</span></div>
-          </div>
-          <div class="accions">
-            <span class="tag verd">Nova</span>
-            <span class="boto rosa">Inscriu-t'hi</span>
-          </div>
-        </a>
-
-        <a class="oferta reveal" style="transition-delay:.14s" href="mailto:vallsgenera@valls.cat?subject=Inscripcio%20oferta%20Ref.%202026-0181%20-%20Administratiu%2Fiva%20comptable">
-          <div>
-            <div class="ref">Ref. 2026-0181 · Publicada el 21.07.2026</div>
-            <h2>Administratiu/iva comptable</h2>
-            <div class="meta"><span>Valls</span><span>Jornada completa</span><span>Administració i gestió</span></div>
-          </div>
-          <div class="accions">
-            <span class="tag">Tanca en 9 dies</span>
-            <span class="boto rosa">Inscriu-t'hi</span>
-          </div>
-        </a>
-
-      </div>
-
-      <!-- Estat alternatiu: quan no hi ha cap oferta oberta. Mai deixar la pagina en blanc. -->
-      <div class="buit">
-        <h2>Ara mateix no hi ha ofertes en aquest sector</h2>
-        <p>Les ofertes es publiquen a mesura que les empreses ens les fan arribar. Si t'inscrius a la borsa de treball, t'avisem per correu quan n'aparegui alguna que encaixi amb el teu perfil.</p>
-        <a class="boto" href="mailto:vallsgenera@valls.cat?subject=Alta%20a%20la%20borsa%20de%20treball">Inscriu-te a la borsa de treball</a>
-      </div>
-    </div>
-
-    <aside class="ajuda reveal">
-      <h2>Encara no ets a la borsa?</h2>
-      <p>Per inscriure't a qualsevol oferta cal estar donat d'alta a la borsa de treball. Es fa un cop i triga uns minuts.</p>
-      <a class="boto" href="mailto:vallsgenera@valls.cat?subject=Alta%20a%20la%20borsa%20de%20treball">Donar-me d'alta</a>
-      <a class="boto buit" href="#" style="margin-top:10px;width:100%">Entrar a l'àrea privada</a>
-
-      <hr>
-
-      <details>
-        <summary>No em puc inscriure a una oferta</summary>
-        <p>Comprova que el tipus d'ocupació que consta a la descripció de l'oferta coincideixi amb les ocupacions del teu perfil laboral. Si tot i així no te'n surts, escriu-nos a <a href="mailto:vallsgenera@valls.cat" style="color:var(--verd);font-weight:600">vallsgenera@valls.cat</a> i ho revisem.</p>
-      </details>
-      <details>
-        <summary>Vull actualitzar el meu perfil</summary>
-        <p>Entra a l'àrea privada amb les teves credencials i edita les ocupacions, la formació i la disponibilitat. Com més al dia el tinguis, més ofertes et podrem oferir.</p>
-      </details>
-      <details>
-        <summary>Prefereixo que m'atengui algú</summary>
-        <p>Demana hora al servei d'orientació laboral i t'ajudem presencialment. De dilluns a divendres, de 8 a 15 h, al 977 61 20 10.</p>
-      </details>
-    </aside>
+  <div class="emprencat reveal">
+    <h2>Pertanyem a la Xarxa Emprèn</h2>
+    <p>La nostra entitat està reconeguda pel Departament d'Empresa i Treball per desenvolupar el conjunt de serveis que ofereix el Programa Integral de Foment de l'Emprenedoria vinculat al Programa Emprèn.cat.</p>
+    <a href="#">Inici. Xarxa Emprèn (gencat.cat) →</a>
+    <a href="#">Contacte Vallsgenera a la Xarxa Emprèn →</a>
   </div>
+
+  <div class="acordio reveal">
+    <details>
+      <summary>Atenció individualitzada</summary>
+      <p>Demana una reunió personalitzada amb el nostre equip per revisar la teva idea de negoci i resoldre els teus dubtes.</p>
+    </details>
+    <details>
+      <summary>Preguntes freqüents</summary>
+      <p>Consulta els dubtes més habituals sobre com posar en marxa una empresa a Valls, o contacta'ns directament si no hi trobes resposta.</p>
+    </details>
+  </div>
+
+  <p class="credit-suport"><strong>Amb el suport del Departament d'Empresa i Treball</strong>Generalitat de Catalunya</p>
 </div>
 </main>
 
