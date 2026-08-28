@@ -141,6 +141,10 @@ section{padding:72px 0}
 .destacat-peu{margin-top:14px;font-size:15px;color:var(--gris-text)}
 .destacat-peu strong{color:var(--tinta);font-weight:700}
 
+.tour-videos-graella{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media (max-width:1000px){.tour-videos-graella{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.tour-videos-graella{grid-template-columns:1fr}}
+
 /* Icones animades a les portes del principi */
 .porta-icona,.porta-icona-capes{position:absolute;top:-16px;right:-12px;width:104px;z-index:1;filter:drop-shadow(0 10px 18px rgba(0,25,35,.18));pointer-events:none}
 .porta-icona{display:block;height:auto}
@@ -426,6 +430,67 @@ footer a:hover{color:#000;text-decoration:underline}
         <span>Carregant el tomb virtual…</span>
       </div>
       <iframe id="tour-embeded" name="TOUR VIRTUAL VALLSGENERA" src="https://tour.panoee.net/iframe/69de1429f416ce3dcfe7823c" frameborder="0" width="100%" height="400" scrolling="no" allowvr="yes" allow="vr; xr; accelerometer; gyroscope; autoplay;" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" loading="lazy" title="Tomb Virtual 360° de Vallsgenera"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="tour-videos">
+  <div class="wrap">
+    <div class="capcalera-seccio reveal">
+      <div>
+        <div class="eyebrow">Coneix cada servei</div>
+        <h2>Els vídeos del tomb virtual, també aquí</h2>
+      </div>
+    </div>
+    <div class="tour-videos-graella">
+      <div class="reveal">
+        <div class="destacat-targeta">
+          <video controls preload="none" poster="tour-orientacio-juvenil-poster.jpg">
+            <source src="tour-orientacio-juvenil.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="destacat-peu"><strong>Servei d'Orientació Juvenil</strong></p>
+      </div>
+      <div class="reveal" style="transition-delay:.05s">
+        <div class="destacat-targeta">
+          <video controls preload="none" poster="tour-formacio-poster.jpg">
+            <source src="tour-formacio.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="destacat-peu"><strong>Formació</strong></p>
+      </div>
+      <div class="reveal" style="transition-delay:.1s">
+        <div class="destacat-targeta">
+          <video controls preload="none" poster="tour-fpo-dual-poster.jpg">
+            <source src="tour-fpo-dual.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="destacat-peu"><strong>FPO Dual</strong></p>
+      </div>
+      <div class="reveal" style="transition-delay:.15s">
+        <div class="destacat-targeta">
+          <video controls preload="none" poster="tour-prospeccio-poster.jpg">
+            <source src="tour-prospeccio.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="destacat-peu"><strong>Departament de Prospecció</strong></p>
+      </div>
+      <div class="reveal" style="transition-delay:.2s">
+        <div class="destacat-targeta">
+          <video controls preload="none" poster="tour-acollida-poster.jpg">
+            <source src="tour-acollida.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="destacat-peu"><strong>Acollida</strong></p>
+      </div>
+      <div class="reveal" style="transition-delay:.25s">
+        <div class="destacat-targeta">
+          <video controls preload="none" poster="tour-uec-poster.jpg">
+            <source src="tour-uec.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="destacat-peu"><strong>UEC</strong></p>
+      </div>
     </div>
   </div>
 </section>
