@@ -53,4 +53,40 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   }
 
+  // Carrusel de vídeos amb lightbox: clic a una targeta obre el vídeo
+  // corresponent en gran, sobre un fons fosc.
+  var lightbox = document.getElementById('videoLightbox');
+  if (lightbox) {
+    var lbVideo = document.getElementById('videoLightboxVideo');
+    var lbSource = lbVideo.querySelector('source');
+    function obreLightbox(src, poster){
+      lbSource.setAttribute('src', src);
+      lbVideo.setAttribute('poster', poster || '');
+      lbVideo.load();
+      lightbox.classList.add('actiu');
+      document.body.style.overflow = 'hidden';
+      lbVideo.play().catch(function(){});
+    }
+    function tancaLightbox(){
+      lightbox.classList.remove('actiu');
+      document.body.style.overflow = '';
+      lbVideo.pause();
+      lbSource.setAttribute('src', '');
+      lbVideo.load();
+    }
+    document.querySelectorAll('.tour-videos-graella button.destacat-targeta').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        obreLightbox(btn.getAttribute('data-video-src'), btn.getAttribute('data-video-poster'));
+      });
+    });
+    lightbox.addEventListener('click', function(e){
+      if (e.target === lightbox) tancaLightbox();
+    });
+    var tancarBtn = document.getElementById('videoLightboxTancar');
+    if (tancarBtn) tancarBtn.addEventListener('click', tancaLightbox);
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && lightbox.classList.contains('actiu')) tancaLightbox();
+    });
+  }
+
 });
